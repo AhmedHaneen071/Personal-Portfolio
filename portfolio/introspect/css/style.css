@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pacifico&display=swap');
+
+*{
+    font-family: 'lato';
+    margin: 0;
+    padding: 0;
+}
+
+/* ______________FONTS______________ */
+
+.nav {
+    background-color: #1C1C1C;
+    width: 100%;
+}
+
+.nav .nav-container {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .nav-container .logo a {
+    text-decoration: none;
+    font-family: 'pacifico';
+    color: #E5474B;
+    font-size: 30px;
+    transition: .4s;
+}
+
+.nav .nav-container .logo a:hover {
+    color: #e5474c97 ;
+}
+
+.nav .nav-container .links ul li a {
+    color: #fff;
+    font-family: 'lato';
+    font-weight:600;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 10px;
+    line-height: 6;
+    transition: .4s;
+    border: 1px solid none;
+    padding:30px;
+}
+
+.nav .nav-container .links ul li {
+    list-style: none;
+}
+
+.nav .nav-container .bars i {
+    color:#fff;
+}
+
+.nav .nav-container .bars {
+    display: none;
+}
+
+.nav .nav-container .links ul  {
+    display: flex;
+}
+
+.nav .nav-container .links ul li:last-child a {
+    margin-right: 0px;
+}
+
+.nav .nav-container .links ul li a:hover{
+    color: #ffffff67;
+}
+
+@media only screen and (max-width:975px) {
+    
+    .nav .nav-container {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .nav .nav-container .logo {
+        margin-left: 90px;
+    }
+
+    .nav .nav-container .logo a {
+        font-size:22px;
+        left: 90px;
+    }
+
+    .nav .nav-container .bars {
+        display: block;
+        transition:.3s;
+        position:relative;
+        right: 50px;
+    }  
+
+    .nav .nav-container .bars:hover + .links {
+        right: 0;
+    }
+
+    .nav .nav-container .links ul {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .nav .nav-container .links {
+        display: block;
+        position: absolute;
+        right: -343px;
+        width:50%;
+        border: none;
+        background-color: #00000033;
+    }
+
+}
+
+/* <RESPONSIVECODEXNAV> */
+
+/* ______________NAVIGATION______________ */
+
+.banner{
+    background-image: url(../images/banner.jpg);
+    background-size: cover;
+}
+
+.banner .banner-overly {
+    background-color: #00000033;
+}
+
+.banner .banner-overly .banner-container {
+    width: 75%;
+    margin: 0 auto;
+    padding: 170px;
+}
+
+.banner .banner-overly .banner-container h1 span {
+    color: #fff;
+    font-weight: 600;
+}
+
+.banner .banner-overly .banner-container h1 {
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 70px;
+    line-height: 1.5;
+    width: 75%;
+    font-size: 36px;
+}
+
+.banner .banner-overly .banner-container a {
+    color: #fff;
+    text-decoration: none;
+    border: 3px solid;
+    padding: 15px 20px;
+    transition: .4s;
+}
+
+.banner .banner-overly .banner-container a:hover{
+    background-color: #ffffff3d;
+}
+
+/* <RESPONSIVE-CODEXBANNER> */
+
+@media only screen and (max-width:1394px) {
+
+    .banner .banner-overly .banner-container {
+        width: 80%;
+        padding:170px 10%;
+        
+    }
+
+}
+
+@media only screen and (max-width:736px) {
+
+    .banner .banner-overly .banner-container h1 {
+        font-size: 30px;
+    }
+
+}
+
+/* ______________BANNER______________ */
+
+.about .about-container {
+    margin: 0 auto;
+    width: 80%;
+    padding: 100px 0;
+}
+
+.about .about-container h1 {
+    color: #E5474B;
+    margin-bottom: 30px;
+}
+
+.about .about-container p {
+    line-height: 2;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.about .about-container a {
+    color: #e5474b;
+    text-decoration: none;
+    border: 2px solid;
+    padding: 10px 20px;
+    transition: .4s;
+}
+
+.about .about-container a:hover {
+    background-color: #e5475c29;
+}
+
+@media only screen and (max-width:1394px) {
+    
+    .about .about-container {
+        width: 80%;
+        padding: 50px 10%;
+    }
+
+}
+
+/* <RESPONSIVE-CODEXABOUT> */
+
+/* ______________ABOUT______________ */
+
+.testimonial .testimonial-container {
+    display: flex;
+}
+
+.testimonial .testimonial-container .first-half {
+    background-color: #F3F3F3;
+    width:50%;
+    padding:50px 120px 50px 120px;
+}
+
+.testimonial .testimonial-container .first-half h1{
+    color:#e5474b;
+    margin-bottom:50px;
+}
+
+.testimonial .testimonial-container .first-half img{
+    width:90%;
+    margin-bottom:50px;
+}
+
+.testimonial .testimonial-container .first-half p{
+    font-size:16.5px;
+    text-align:justify;
+    font-weight:300;
+    letter-spacing:.5px;
+    width:90%;
+    line-height:2;    
+}
+
+/* ______________TESTIMONIAL-FIRST-HALF______________ */
+
+.testimonial .testimonial-container .second-half {
+    background-color: #F7F7F7;
+    width:50%;
+    padding:50px 120px 50px 120px;
+}
+
+.testimonial .testimonial-container .second-half h1{
+    color:#e5474b;
+    margin-bottom:50px;
+}
+
+.testimonial .testimonial-container .second-half img{
+    width:90%;
+    margin-bottom:50px;
+}
+
+.testimonial .testimonial-container .second-half p{
+    font-size:16.5px;
+    text-align:justify;
+    font-weight:300;
+    letter-spacing:.5px;
+    width:90%;
+    line-height:2;
+}
+
+/* <RESPONSIVE-CODEXTESTIMONIALS> */
+
+@media only screen and (max-width:1394px) {
+
+    .testimonial .testimonial-container {
+        width: 100%;
+        display: block;
+    }
+
+    .testimonial .testimonial-container .first-half {
+        width: 80%;
+        padding: 50px 10%;
+    }
+
+    .testimonial .testimonial-container .second-half {
+        width: 80%;
+        padding: 50px 10%;
+    }
+
+}
+
+/* ______________TESTIMONIAL-SECOND-HALF______________ */
+
+.card .card-container {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    padding:50px 120px 50px 120px;
+    justify-content:space-between;
+
+}
+
+.card .card-container div{
+    width: 23%;
+}
+
+.card .card-container div img {
+    width: 18%;
+    margin-bottom:40px;
+}
+
+.card .card-container div h1 {
+    color:#e5474b;
+    font-size:24px;
+    margin-bottom:40px;
+}
+
+.card .card-container div p {
+    font-weight:300;
+    line-height:2;
+    margin-bottom:40px;
+}
+
+.card .card-container div a {
+    text-decoration:none;
+    color:#e5474b;
+    border:2px solid;
+    padding:10px 20px;
+    transition:.4s;
+}
+
+.card .card-container div a:hover{
+    background-color:#e5474b38;
+}
+
+/* <RESPONSIVE-CODEXCARDS> */
+
+@media only screen and (max-width:1394px) {
+    
+
+    .card .card-container {
+        width: 80%;
+        padding:50px 10%;
+        display: block;
+    }
+
+    .card .card-container div {
+        width: 100%;
+        padding: 50px 0;
+    }
+
+    .card .card-container div img {
+        width:100px;
+    }
+}
+
+/* ______________CARDS______________ */
+
+footer {
+    background-color: #e5474b;
+}
+
+footer .container {
+    width: 80%;
+    margin: 0 auto;
+    padding:100px 40px;
+}
+
+footer .container form .inp-parent {
+    width: 100%;
+    display: flex;
+}
+
+footer .container form .inp-parent .inp {
+    width:50%;
+}
+
+footer .container form .inp-parent .inp:first-child {
+    margin-right:50px;
+}
+
+footer .container form .inp-parent .inp label {
+    color: #fff;
+    font-weight: 500;
+}
+
+footer .container form .inp-parent .inp input {
+    background: none;
+    outline:none;
+    border: 3px solid #ffffff73;
+    width: 100%;
+    height: 20px;
+    padding: 10px;
+    margin: 20px 0 50px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+footer .container form .inp-parent .inp input:hover{
+    border-color: #fff;
+}
+
+footer .container form .inp-parent .inp input:focus{
+    border-color: #fff;
+}
+footer .container form label {
+    color: #fff;
+    font-weight: 500;
+}
+
+footer .container form textarea {
+    background: none;
+    border: 3px solid #ffffff73;
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin: 20px 0 50px;
+    color: #fff;
+    transition:0.3s;
+    outline:none;
+}
+
+footer .container form textarea:hover{
+    border-color: #fff;
+}
+
+footer .container form textarea:focus{
+    border-color: #fff;
+}
+
+footer .container a {
+    color: white;
+    text-decoration: none;
+    border: 3px solid white;
+    padding: 15px 25px;
+}
+
+footer .container a:hover {
+    background-color:#ffffff3d ;
+}
+
+footer .container h6 {
+    font-size: 20px;
+    margin-top: 50px;
+    color:#ffffff40;
+}
+
+/* <RESPONSIVE-CODEXFOOTER> */
+
+@media only screen and (max-width:1394px) {
+
+    footer .container {
+        width: 80%;
+        padding:100px 10%;
+    }
+
+    footer .container form {
+        display: block;
+    }
+
+    footer .container form .inp input {
+        width:100%;
+    }
+
+    footer .container a {
+        font-size: 12px;
+    }
+
+    footer .container h6 {
+        font-size: 10px;
+    }
+
+}
+
+/* ______________FOOTER______________ */

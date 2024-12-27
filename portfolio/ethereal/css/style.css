@@ -1,0 +1,689 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ---------------------------------- F0NTS ---------------------------------- */
+
+* {
+    margin:0;
+    padding:0;
+    font-family: 'Oleo Script Swash Caps';
+}
+
+/* -----------------MARG&PAD ----------------- */
+
+.nav {
+    background-color: #443344;
+    position: fixed;
+    width: 100%;
+    display: flex;
+}
+
+.nav .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* SIZING */
+
+.nav .container .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.nav .container .logo a:hover {
+    color:#EB233C;
+    
+}
+
+/* LOGO */
+
+.nav .container .links ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav .container .links ul li a {
+    text-decoration:none;
+    font-family:'Work Sans';
+    font-size: 14px;
+    line-height: 3.6;
+    border:2px solid none;
+    padding: 17px 15px;
+    color: #E1DBDB;
+}
+
+.nav .container .links ul li a:focus {
+    background-color:#665566;
+    border-bottom:2px solid #EB233C;
+    color:#fff;
+}
+
+.nav .container .links ul li a:hover {
+    background-color:#665566;
+    border-bottom:2px solid #EB233C;
+    color:#fff;
+}
+
+/* LINKS */
+
+/* BARS */
+
+.nav .icon {
+    display: none;
+}
+
+/* <RESPONSIVE-C0DE-X-NAVIGATION> */
+
+@media only screen and (max-width:801px) {
+
+    .nav .container {
+        width: 100%;
+    }
+
+    .nav .container .logo {
+        position:absolute;
+        top: 0;
+        width: 100%;
+        background-color: #443344;
+        left: 0;
+        padding: 15px 0 10px 20px;
+    }
+
+    .nav .container .icon {
+        display: block;
+        position:absolute;
+        right:50px;
+        top:0;
+    }
+
+    .nav .container .icon i {
+        line-height:2;
+        font-size:20px;
+        margin:10px 20px;
+        color:#858585;
+        border:none;
+        background-color:#fff;
+        padding:2px 10px;
+        border-radius:10px;
+        position: relative;
+    }
+
+    .nav .container .icon:hover ~ .links {
+        right:0%;
+    }
+    
+    .nav .container .links {
+        position:absolute;
+        right:100%;
+        width:100%;
+        top:28px;
+    }
+
+    .nav .container .links ul {
+        display: block;
+        width:100%;
+        margin:32px 0 0;
+        background-color:#443344;
+    }
+
+    .nav .container .links ul li  {
+        width: 100%;
+    }
+
+    .nav .container .links ul li a {
+        padding-right:100%;
+    }
+
+    .nav .container .links ul li a:last-child {
+        padding-right:86%;
+    }
+
+    .nav .container .links ul li a:hover {
+        border: none;
+        background-color: #665566;
+    }
+
+}
+
+/* ----------------- NAVIGATION ----------------- */
+
+.banner {
+    background-image: url(../images/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+.banner .overly {
+    padding: 280px 0 220px;
+    background-color: RGBA(15, 5, 20, 0.84);
+}
+
+.banner .overly .container {
+    color: #fff;
+    text-align: center;
+    cursor: default;
+}
+
+.banner .overly .container h1 {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.banner .overly .container h1 span {
+    color: #EB243E;
+}
+
+.banner .overly .container p {
+    font-family: 'Work Sans';
+    font-size: 15px;
+    margin: 10px 0 30px;
+}
+
+.banner .overly .container a {
+    font-family: 'Work Sans';
+    text-decoration: none;
+    font-size: 15px;
+    border: rgba(204, 204, 204, 0.18) 1px solid;
+    color: #ccc;
+    padding: 15px 38px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.banner .overly .container a:hover {
+    color: RGBA(15, 5, 20, 0.84);
+    background-color:#ccc;
+}
+
+/* ----------------- BANNER ----------------- */
+
+.info .container {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    padding:80px 0 80px;
+}
+
+.info .container div {
+    width: 33%;
+    display: flex;
+    justify-content:space-between;
+}
+
+.info .container div:first-child i {
+    padding:20px 23px;
+}
+
+.info .container div i {
+    color:#EB243E;
+    font-size:24px;
+    margin:auto 0;
+    border:1px solid #0000001f;
+    padding:20px;
+    border-radius:40px;
+}
+
+.info .container div .text {
+    width:70%;
+    display:block;
+}
+
+.info .container div .text h4 {
+    font-weight:100;
+}
+
+.info .container div .text p {
+    font-family:'Work Sans';
+    margin-top:10px;
+    font-size:14px;
+    line-height:1.5;
+    font-weight:400;
+}
+
+/* <RESPONSIVE-C0DE-X-INFO> */
+
+@media only screen and (max-width:801px) {
+    .info .container {
+        width:100%;
+        display:block;
+    }
+
+    .info .container div {
+        margin:10px auto ;
+        width:90%;
+    }
+}
+
+/* ----------------- INFO ----------------- */
+
+.work {
+    background-color: #FAF4FA;
+}
+
+.work .container {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 0 50px;
+}
+
+.work .container h2 {
+    margin-bottom: 50px;
+    border-bottom: 2px solid #EB243E;
+    padding: 10px 2px 6px;
+    width: 94px;
+    margin: 0 auto 50px auto;
+    font-weight: 300;
+}
+
+.work .container .portfolio {
+    margin-bottom:50px;
+}
+
+.work .container .link a {
+    font-size:14px;
+    color:#fff;
+    text-decoration:none;
+    border:1px solid #EB243E;
+    padding:15px 35px;
+    background-color:#EB243E;
+    border-radius:30px; 
+    font-family:'Work Sans';
+}
+
+/* ----------------- PORTFOLIO ----------------- */
+
+.subscription {
+    background-image: url(../images/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+.subscription .overly {
+    background-color: RGBA(15, 5, 20, 0.84);
+    color: #fff;
+    padding:60px 0 60px;
+}
+
+.subscription .overly .container {
+    text-align: left;
+    cursor: default;
+    width:75%;
+    margin:0 auto;
+    display:flex;
+}
+
+.subscription .overly .container .text {
+    width:65%;
+}
+
+
+.subscription .overly .container .text h2 {
+    font-weight:200;
+    border-bottom:2px solid #EB243E;
+    width:211px;
+    margin-bottom:20px;
+}
+
+.subscription .overly .container .text p {
+    font-family:'Work Sans';
+    font-size:14px;
+    line-height:1.5;
+}
+
+.subscription .overly .container a {
+    text-decoration:none;
+    color:white;
+    font-family:'Work Sans';
+    font-size:14px;
+    border:1px solid #EB243E;
+    padding:10px 20px;
+    background-color:#EB243E;
+    border-radius:20px;
+    margin:auto;
+}
+
+/* ----------------- SUBSCRIPTION ----------------- */
+
+.testimonial .container {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial .container h2 {
+    font-weight: 100;
+    font-size: 24px;
+    border-bottom: 2px solid #EB243E;
+    padding: 10px 6px 2px;
+    width: 151px;
+    margin: 50px auto;
+}
+
+.testimonial .container .comment {
+    border-radius: 18px;
+    border: 1px solid #FAF4FA;
+    width: 456px;
+    background-color: #FAF4FA;
+    text-align: left;
+    padding: 45px;
+    margin: 0 auto 50px;
+    cursor:default;
+}
+
+.testimonial .container .comment p {
+    font-family: 'Work Sans';
+    font-size: 16px;
+}
+
+.testimonial .container .comment .profile {
+    display: flex;
+    margin: 50px 0 0 0;
+}
+
+.testimonial .container .comment .profile img {
+    height: 58px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+.testimonial .container .comment .profile h4 {
+    margin: auto 40px;
+    font-family: 'Work Sans';
+}
+
+/* ----------------- TESTIMONIAL ----------------- */
+
+.about .container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.about .container h4 {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 2px solid #EB243E;
+    padding: 10px 2px 6px;
+    width: 90px;
+    margin: 50px auto;
+}
+
+.about .container .flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about .container .flex .paragraph {
+    width: 45%;
+}
+
+.about .container .flex .paragraph p {
+    font-family: 'Work Sans';
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.about .container .flex .number-area {
+    display: flex;
+    width:45%;
+    justify-content: space-around;
+}
+
+.about .container .flex .number-area h6 {
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.about .container .flex .number-area h1 {
+    margin-top: 22px;
+    text-align: center;
+    font-family: 'Work Sans';
+    font-weight: 200;
+    color: #EB243E;
+    font-size: 50px;
+}
+
+
+@media only screen and (max-width:1336px) {
+    
+    .about .container{
+        width:100%;
+        padding:50px 0;
+    }
+    
+    .about .container .flex {
+        display:block;
+        width:100%;
+        padding:50px 0;
+    }
+
+    .about .container .flex .paragraph {
+        width:90%;
+        margin:0 auto;
+        padding:0;
+    }
+
+    .about .container .flex .number-area {
+        margin:0 auto;
+    }
+}
+
+
+/* ----------------- FOOTER ----------------- */
+
+footer {
+    background-color: #F7F7F7;
+    padding-top: 10px;
+}
+
+footer .container {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content:space-between;
+}
+
+footer h3 {
+    font-weight: 100;
+    text-align: center;
+    margin: 50px auto;
+    font-size: 24px;
+    border-bottom: 2px solid #EB243E;
+    width: 101px;
+}
+
+footer .container .form {
+    padding: 30px 0;
+    padding-left:0;
+    width:50%;
+}
+
+footer .container .form form {
+    width:100%;
+}
+
+footer .container .form form .parent {
+    width:100%;
+}
+
+footer .container .form form .parent input {
+    border: 2px solid #F7F7F7;
+    outline: none;
+    border-bottom-color: #EB243E;
+    font-family: 'Work Sans';
+    background-color: #F7F7F7;
+    width: 40%;
+    height: 30px;
+    margin: 60px 0px 0px;
+    padding: 0 10px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    
+}
+
+footer .container .form form .parent input:first-child {
+    margin-right:10%;
+}
+
+footer .container .form form .parent input:hover {
+    border-bottom-color: black;
+}
+
+
+footer .container .form form .parent input:focus {
+    border-bottom-color: black;
+}
+
+footer .container .form form textarea {
+    border: 2px solid #F7F7F7;
+    outline: none;
+    border-bottom-color: #EB243E;
+    font-family: 'Work Sans';
+    background-color: #F7F7F7;
+    width: 95.6%;
+    height: 100px;
+    margin: 50px 0;
+    padding: 0 2%;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+footer .container .form form textarea:hover {
+    border-bottom-color: black;
+}
+
+
+footer .container .form form textarea:focus {
+    border-bottom-color: black;
+}
+
+footer .container .form form .btn {
+    width:100%;
+    text-align:center;
+}
+
+footer .container .form form .btn input {
+    font-family:'Work Sans';
+    padding:15px 40px;
+    color:#fff;
+    font-size:15px;
+    background-color:#EB243E;
+    border:#EB243E;
+    border-radius:30px;
+    margin:0 auto;
+}   
+
+footer .container .info-2 {
+    width: 50%;
+    padding-top:90px;
+}
+
+footer .container .info-2 .content {
+    margin:0px 90px;
+}
+
+footer .container .info-2 .content h4 {
+    color: #EB243E;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+footer .container .info-2 .content p {
+    font-family: 'Work Sans';
+    font-size: 15px;
+    line-height: 2;
+}
+
+footer .container .info-2 .content .about-icon {
+    display: flex;
+    align-items:center;
+}
+
+footer .container .info-2 .content .about-icon i {
+    font-size:12px;
+    margin: auto 20px auto 0px;
+    color:#EB243E;
+}
+
+@media only screen and (max-width:1362px) {
+
+    footer .container .form form .parent input {
+        width:100%;
+    }
+
+    footer .container .form form textarea {
+        width:100%;
+    }
+    
+}
+
+@media only screen and (max-width:901px) {
+    
+    footer .container {
+        display:block;
+    }
+
+    footer .container .form {
+        width:100%;
+        margin:0 auto;
+    }
+
+    footer .container .info-2 {
+        width:90%;
+    }
+    
+}
+
+.copyright {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0 50px;
+}
+
+.copyright h6 {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 14px;
+    margin:auto 170px;
+}
+
+.copyright h6 a {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration:none;
+    color:#EB243E;
+}
+
+.copyright .img i:first-child {
+    padding:10px;
+}
+
+.copyright .img i {
+    font-size:18px;
+    color:#fff;
+    border:none;
+    border-radius:100px;
+    background-color:#000;
+    padding:10px 13px;
+    transition:.3s;
+}
+
+.copyright .img i:last-child {
+    padding:10px 12px;
+}
+
+.copyright .img i:hover {
+    background-color:#EB243E;
+}

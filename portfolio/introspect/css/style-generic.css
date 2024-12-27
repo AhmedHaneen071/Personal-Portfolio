@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pacifico&display=swap');
+
+*{
+    font-family: 'lato';
+    margin: 0;
+    padding: 0;
+}
+
+.content .content-container img {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.content .content-container p {font-weight: 300;font-size: 18px;line-height: 2;letter-spacing: -.2px;margin-bottom: 30px;}
+
+/* ______________FONTS______________ */
+
+.nav {
+    background-color: #1C1C1C;
+    width: 100%;
+}
+
+.nav .nav-container {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .nav-container .logo a {
+    text-decoration: none;
+    font-family: 'pacifico';
+    color: #E5474B;
+    font-size: 30px;
+    transition: .4s;
+}
+
+.nav .nav-container .logo a:hover {
+    color: #e5474c97 ;
+}
+
+.nav .nav-container .links ul li a {
+    color: #fff;
+    font-family: 'lato';
+    font-weight:600;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 10px;
+    line-height: 6;
+    transition: .4s;
+    border: 1px solid none;
+    padding:30px;
+}
+
+.nav .nav-container .links ul li {
+    list-style: none;
+}
+
+.nav .nav-container .links ul {
+    display: flex;
+}
+
+.nav .nav-container .links ul li:last-child a {
+    margin-right: 0px;
+}
+
+.nav .nav-container .links ul li a:hover{
+    color: #ffffff67;
+}
+
+/* ______________NAVIGATION______________ */
+
+.content .content-container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.content .content-container h1 {
+    color: #E5474B;
+    margin: 40px 0px 30px 0px;
+}
+
+.content .content-container h6 {
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+/* ______________CONTENT______________ */
+
+footer {
+    background-color: #e5474b;
+}
+
+footer .container {
+    width: 75%;
+    margin: 0 auto;
+    padding:100px 40px;
+}
+
+footer .container .label-div {
+    display:flex;
+    justify-content:space-between;
+}
+
+footer .container .label-div .label label {
+    color:#fff;
+    font-size:20px;
+    line-height:4;
+}
+
+footer .container .label-div .label input {
+    padding:10px;
+    width:40em;
+    height:30px;
+    background:none;
+    border:3px solid #ffffff36;
+    outline:none;
+    margin-bottom:40px;
+    color:white;
+    transition:.2s;
+}
+
+footer .container .label-div .label input:focus {
+    border:3px solid white;
+}
+
+footer .container .textarea-div .textarea label {
+    color:white;
+    font-size:20px;
+    line-height:4;
+}
+
+footer .container .textarea-div .textarea textarea {
+    background:none;
+    border:3px solid #ffffff36;
+    padding:10px;
+    color:white;
+    outline:none;
+    width:83.6em;
+    height:190px;
+    margin-bottom:50px;
+    transition:.2s
+}
+
+footer .container .textarea-div .textarea textarea:focus{
+    border:3px solid white;
+}
+
+footer .container a {
+    color: white;
+    text-decoration: none;
+    border: 3px solid white;
+    padding: 15px 25px;
+}
+
+footer .container a:hover {
+    background-color:#ffffff3d ;
+}
+
+footer .container h6 {
+    font-size: 20px;
+    margin-top: 50px;
+    color:#ffffff40;
+}
+
+/* ______________FOOTER______________ */

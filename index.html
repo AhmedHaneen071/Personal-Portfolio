@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header id="home">
+                <nav>
+                    <div class="nav_container">
+                        <div class="logo">
+                            <a href="#">
+                                <h2>
+                                    <span class="G">P</span>ortfolio<span class="dot">.</span>
+                                </h2>
+                            </a>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#home" class="home">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#portfolio">Portfolio</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                                <li><button id="Themeswitch"><i class="fa-solid fa-sun"></i><i class="fa-solid fa-moon"></i></button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <section class="hero">
+                    <div class="hero_container">
+                        <h1>AHMED<span> HANEEN</span></h1>
+                        <a href="#contact">Get in Touch</a>
+                    </div>
+                </section>
+            </header>
+
+            <section class="about" id="about">
+                <div class="about_container">
+                    <div class="pfp_icon">
+                        <img src="img/pfpicon.png" alt="Profile Icon">
+                    </div>
+                    <div class="text">
+                        <h1>AHMED <span>HANEEN</span></h1>
+                        <p>
+                            My name is Ahmed Haneen. I am a graphic designer, and I'm very passionate and dedicated to my work.
+                            With 3 years of experience as a professional graphic designer, I have acquired the skills and knowledge.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pfolio" id="portfolio">
+                <div class="pfolio_container">
+                    <div class="card_container">
+                        <a href="portfolio/cuba/index.html" target="_blank">
+                            <div class="card">
+                                <div class="card2">
+                                    <img src="img/portfolio_item_1-01.png" alt="Portfolio Item 1">
+                                </div>
+                            </div>
+                        </a>
+                        <a href="portfolio/ethereal/index.html" target="_blank">
+                            <div class="card">
+                                <div class="card2">
+                                    <img src="img/portfolio_item_2-01.png" alt="Portfolio Item 2">
+                                </div>
+                            </div>
+                        </a>
+                        <a href="portfolio/introspect/index.html" target="_blank">
+                            <div class="card">
+                                <div class="card2">
+                                    <img src="img/portfolio_item_3-01.png" alt="Portfolio Item 3">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact" id="contact">
+                <div class="contact_container">
+                    <form action="">
+                        <div class="type">
+                            <input placeholder="Name" class="input" name="name" type="text" required>
+                            <input placeholder="Email" class="input" name="email" type="email" required>
+                        </div>
+                        <textarea name="message" cols="30" rows="10" placeholder="Your message..." required></textarea>
+                        <input type="submit" value="Submit" class="submit">
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/db6c4cd2c4.js" crossorigin="anonymous"></script>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem('lightMode') === 'true') {
+                $('body').addClass('light-mode');
+            }
+            $('#Themeswitch').click(function () {
+                $('body').toggleClass('light-mode');
+
+                if ($('body').hasClass('light-mode')) {
+                    localStorage.setItem('lightMode', 'true');
+                } else {
+                    localStorage.setItem('lightMode', 'false');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
