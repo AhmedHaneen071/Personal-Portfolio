@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
     --Base1:#22A6F2;
@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family:'Roboto';
+    font-family:'Open Sans';
 }
 
 body a {
@@ -62,12 +62,73 @@ nav .container .links,.logo {
     font-weight: lighter;
 }
 
+.logo h2:hover {
+    color: #22a6f2be;
+    transition: ease-in-out .3s;
+}
+
 .links ul a {
     color: var(--default);
+}
+
+.links ul a:hover {
+    color:var(--Base1);
+    transition: ease-in-out .3s;
 }
 
 nav .container .links ul {
     list-style: none;
     display: flex;
     gap: 2em;
+}
+
+nav .container .links ul li:last-child .Themeswitch {
+    background-color: transparent;
+    border: none;
+    color: var(--default);
+    font-size: 1.2em;
+}
+
+nav .container .links ul li:last-child .Themeswitch:hover {
+    color:var(--Base1);
+    transition: ease-in-out .3s;
+}
+
+nav .container .links ul li:last-child .Themeswitch i:last-child {
+    display: none;
+} 
+
+.hero {
+    width: 100%;
+    height: 90%;
+}
+
+.hero .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    row-gap: 2em;
+}
+
+.hero h1 {
+    color: var(--Base1);
+    font-size: 5em;
+    font-weight: 500;
+}
+
+.hero h1 span {
+    color: var(--default);
+}
+
+.hero a {
+    background-color: var(--default);
+    width: max-content;
+    margin: 0 auto;
+    padding: 1em 2em;
+    border-radius: 6px;
+    color: var(--Base2);
+    font-weight: 500;
 }
