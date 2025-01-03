@@ -57,7 +57,7 @@ nav .container .links,.logo {
 .logo h2 {
     color: var(--Base1);
     font-family: 'Bebas Neue';
-    font-size: 2em;
+    font-size: 2.2em;
     letter-spacing: 2px;
     font-weight: lighter;
 }
@@ -82,6 +82,10 @@ nav .container .links ul {
     gap: 2em;
 }
 
+nav .container .links ul li {
+    font-size: 1em;
+}
+
 nav .container .links ul li:last-child .Themeswitch {
     background-color: transparent;
     border: none;
@@ -96,7 +100,7 @@ nav .container .links ul li:last-child .Themeswitch:hover {
 
 nav .container .links ul li:last-child .Themeswitch i:last-child {
     display: none;
-} 
+}
 
 .hero {
     width: 100%;
@@ -131,4 +135,139 @@ nav .container .links ul li:last-child .Themeswitch i:last-child {
     border-radius: 6px;
     color: var(--Base2);
     font-weight: 500;
+}
+
+.about {
+    width: 100%;
+    height: 100vh;
+}
+
+.about .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about .container .pfp,.text {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .container .pfp .img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid var(--Base1);
+    padding: 1em;
+    border-radius: 2em;
+}
+
+.about .container .pfp .img img {
+    width: 100%;
+    border-radius: 1em;
+}
+
+.about .container .text .content h1 {
+    font-size: 3em;
+    font-weight: 600;
+    color: var(--default);
+}
+
+.about .container .text .content h1 span {
+    color: var(--Base1);
+}
+
+.about .container .text .content p {
+    text-align: justify;
+    font-size: 1.2em;
+    color: var(--default);
+    line-height: 1.8em;
+}
+
+.portfolio {
+    width: 100%;
+    height: 100vh;
+}
+
+.portfolio .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio .container a {
+    width: 30%;
+    height: 80%;
+}
+
+.portfolio .container a .card {
+    width: 100%;
+    height: max-content;
+    border-radius: 1.4em;
+}
+
+.portfolio .container a .card img {
+    width: 100%;
+    border-radius: 1em;
+    filter: grayscale(100%);
+}
+
+.portfolio .container a .card img:hover{
+    padding: 10px;
+    transition: all .4s;
+    border: 2px solid var(--Base1);
+    filter: grayscale(0);
+}
+
+.contact {
+    width: 100%;
+    height: 100vh;
+}
+
+.contact .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact .container form {
+    width: 70%;
+    height: 70%;
+}
+
+.contact .container form .type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact .container form .type input {
+    background-color: transparent;
+    border: 4px solid var(--default);
+    padding: 5px;
+    border-radius: 6px;
+    height: 30px;
+    width: 45%;
+}
+
+.contact .container form textarea {
+    width: 98%;
+    background-color: transparent;
+    border: 4px solid var(--default);
+    padding: 5px;
+    border-radius: 6px;
+    margin-top: 2em;
+}
+
+.contact .container form input.submit {
+    
 }
