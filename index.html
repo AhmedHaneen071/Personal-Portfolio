@@ -23,7 +23,7 @@
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#portfolio">Portfolio</a></li>
                                 <li><a href="#contact">Contact</a></li>
-                                <li><button id="Themeswitch" class="Themeswitch"><i class="fa-solid fa-sun"></i><i class="fa-solid fa-moon"></i></button></li>
+                                <li><button id="Themeswitch" class="Themeswitch"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
                             </ul>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                             <input placeholder="Name" class="input" name="name" type="text" required>
                             <input placeholder="Email" class="input" name="email" type="email" required>
                         </div>
-                        <textarea name="message" rows="10" placeholder="Your message..." required></textarea>
+                        <textarea name="message" placeholder="Your message..." required></textarea>
                         <input type="submit" value="Submit" class="submit">
                     </form>
                 </div>
@@ -93,16 +93,16 @@
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function () {
-            if (localStorage.getItem('lightMode') === 'true') {
-                $('body').addClass('light-mode');
+            if (localStorage.getItem('darkMode') === 'true') {
+                $('body').addClass('dark-mode');
             }
             $('#Themeswitch').click(function () {
-                $('body').toggleClass('light-mode');
+                $('body').toggleClass('dark-mode');
 
-                if ($('body').hasClass('light-mode')) {
-                    localStorage.setItem('lightMode', 'true');
+                if ($('body').hasClass('dark-mode')) {
+                    localStorage.setItem('darkMode', 'true');
                 } else {
-                    localStorage.setItem('lightMode', 'false');
+                    localStorage.setItem('darkMode', 'false');
                 }
             });
         });

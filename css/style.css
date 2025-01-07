@@ -3,14 +3,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
-    --Base1:#22A6F2;
-    --Base2:#201C22;
-    --default:#F7FFF7;
+    --Base1:#F25922;
+    --Base2:#DFE3DD;
+    --default:#080008;
+    --hover:#f25922b5;
+}
+
+.dark-mode {
+    --Base1: #22A6F2;
+    --Base2: #201C22;
+    --default: #F7FFF7;
+    --hover: #22A6F2B5;
 }
 
 * {
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,6 +31,7 @@ body {
 
 body a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .wrapper {
@@ -99,6 +112,14 @@ nav .container .links ul li:last-child .Themeswitch:hover {
 }
 
 nav .container .links ul li:last-child .Themeswitch i:last-child {
+    display: none;
+}
+
+.dark-mode .container .links ul li:last-child .Themeswitch i:last-child {
+    display: block;
+}
+
+.dark-mode .container .links ul li:last-child .Themeswitch i:first-child {
     display: none;
 }
 
@@ -229,10 +250,15 @@ nav .container .links ul li:last-child .Themeswitch i:last-child {
 .contact {
     width: 100%;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Base2);
 }
 
 .contact .container {
     width: 100%;
+    max-width: 1200px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -240,34 +266,69 @@ nav .container .links ul li:last-child .Themeswitch i:last-child {
 }
 
 .contact .container form {
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
 }
 
 .contact .container form .type {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1em;
 }
 
 .contact .container form .type input {
+    width: 50%;
+    height: 40px;
     background-color: transparent;
-    border: 4px solid var(--default);
-    padding: 5px;
+    border: 2px solid var(--default);
     border-radius: 6px;
-    height: 30px;
-    width: 45%;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    color: var(--default);
+    transition: border-color 0.3s ease;
+}
+
+.contact .container form .type input:focus {
+    border-color: var(--Base1);
+    outline: none;
 }
 
 .contact .container form textarea {
-    width: 98%;
+    width: 97.5%;
+    height: 150px;
     background-color: transparent;
-    border: 4px solid var(--default);
-    padding: 5px;
+    border: 2px solid var(--default);
     border-radius: 6px;
-    margin-top: 2em;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    color: var(--default);
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.contact .container form textarea:focus {
+    border-color: var(--Base1);
+    outline: none;
 }
 
 .contact .container form input.submit {
-    
+    width: 100%;
+    height: 50px;
+    background-color: var(--Base1);
+    border: none;
+    border-radius: 6px;
+    color: var(--default);
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact .container form input.submit:hover {
+    background-color: var(--hover);
 }
