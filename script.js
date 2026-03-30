@@ -1,35 +1,39 @@
-// 1. Custom Cursor Logic
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+
+  // Theme Toggle Logic
+  document.getElementById("theme-toggle").onclick = () => {
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem(
+      "theme",
+      document.documentElement.classList.contains("dark") ? "dark" : "light",
+    );
+  };
+
+  // Mobile Sidebar Logic
+  menuToggle.onclick = () => mobileMenu.classList.add("active");
+  menuClose.onclick = () => mobileMenu.classList.remove("active");
+  document.querySelectorAll(".mob-link").forEach((link) => {
+    link.onclick = () => mobileMenu.classList.remove("active");
+  });
+
+  // Fade In/Out Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document
+    .querySelectorAll(".scroll-reveal")
+    .forEach((el) => observer.observe(el));
 });
-
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-});
-
-// 2. Lenis Smooth Scrolling
-const lenis = new Lenis();
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
-// 3. Scroll Reveal Logic
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-    });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// 4. Mobile Menu Logic
-const menuToggle = document.getElementById('menu-toggle');
-const menuClose = document.getElementById('menu-close');
-const mobileMenu = document.getElementById('mobile-menu');
-
-menuToggle.onclick = () => mobileMenu.style.right = '0';
-menuClose.onclick = () => mobileMenu.style.right = '-100%';
