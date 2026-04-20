@@ -17,7 +17,14 @@
     <script>
       tailwind.config = {
         darkMode: "class",
-        theme: { extend: { colors: { purplebrand: "#854fee" } } },
+        theme: {
+          extend: {
+            colors: { purplebrand: "#854fee" },
+            animation: {
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+          },
+        },
       };
     </script>
   </head>
@@ -30,9 +37,15 @@
       class="fixed top-0 w-full z-[100] px-6 py-4 border-b border-black dark:border-white/20 backdrop-blur-md bg-white/80 dark:bg-black/50"
     >
       <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <span class="text-[10px] font-bold tracking-[0.4em] uppercase"
-          >AHMED HANEEN</span
-        >
+        <div class="flex flex-col">
+          <span class="text-[10px] font-bold tracking-[0.4em] uppercase"
+            >AHMED HANEEN</span
+          >
+          <span
+            class="text-[8px] text-purplebrand animate-pulse uppercase tracking-widest"
+            >● System Online // 2026</span
+          >
+        </div>
         <div class="flex items-center gap-6">
           <nav
             class="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-widest"
@@ -45,7 +58,10 @@
               >Works</a
             >
           </nav>
-          <button id="theme-toggle" class="text-lg">
+          <button
+            id="theme-toggle"
+            class="text-lg hover:rotate-180 transition-transform duration-500"
+          >
             <i class="fas fa-circle-half-stroke"></i>
           </button>
           <button id="menu-toggle" class="md:hidden text-2xl">
@@ -59,7 +75,7 @@
       id="mobile-menu"
       class="fixed inset-0 z-[110] bg-white dark:bg-black translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8 text-2xl font-black uppercase"
     >
-      <button id="menu-close" class="absolute top-6 right-8">
+      <button id="menu-close" class="absolute top-6 right-8 text-2xl">
         <i class="fas fa-times"></i>
       </button>
       <a href="#about" class="mob-link">About</a>
@@ -77,7 +93,7 @@
           <h1
             class="text-7xl md:text-[11rem] font-black mb-6 tracking-tighter leading-[0.85] uppercase"
           >
-            Ahmed <br /><span class="text-purplebrand">Haneen</span>
+            Ahmed <br /><span class="text-purplebrand glow-text">Haneen</span>
           </h1>
           <p
             class="text-lg md:text-xl font-medium max-w-2xl leading-relaxed mb-10 opacity-70"
@@ -103,7 +119,7 @@
             </h2>
             <div class="space-y-10">
               <div
-                class="p-10 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-purplebrand hover:text-white transition-all group"
+                class="experience-card p-10 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-purplebrand hover:text-white transition-all group"
               >
                 <span
                   class="text-[10px] font-bold uppercase opacity-60 group-hover:opacity-100"
@@ -126,7 +142,7 @@
                 </ul>
               </div>
               <div
-                class="p-10 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-purplebrand hover:text-white transition-all group"
+                class="experience-card p-10 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-purplebrand hover:text-white transition-all group"
               >
                 <span
                   class="text-[10px] font-bold uppercase opacity-60 group-hover:opacity-100"
@@ -156,7 +172,7 @@
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div
-                class="p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all"
+                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
               >
                 <h4 class="text-xl font-black uppercase">
                   Software Engineering
@@ -167,9 +183,8 @@
                   Aptech Defence | Hyderabad, Pakistan
                 </p>
               </div>
-
               <div
-                class="p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all"
+                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
               >
                 <h4 class="text-xl font-black uppercase">
                   Undergraduate Program
@@ -180,9 +195,8 @@
                   HITMS | Hyderabad, Pakistan
                 </p>
               </div>
-
               <div
-                class="p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all"
+                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
               >
                 <h4 class="text-xl font-black uppercase">Diploma</h4>
                 <p
@@ -191,9 +205,8 @@
                   Gexton Education | Hyderabad, Pakistan
                 </p>
               </div>
-
               <div
-                class="p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all"
+                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
               >
                 <h4 class="text-xl font-black uppercase">Matriculation</h4>
                 <p
@@ -216,7 +229,9 @@
           // SKILLS_RATING
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-8 border-2 border-black dark:border-white">
+          <div
+            class="p-8 border-2 border-black dark:border-white hover:border-purplebrand transition-colors"
+          >
             <h4
               class="text-[10px] font-bold uppercase mb-6 text-purplebrand tracking-widest"
             >
@@ -231,7 +246,9 @@
               <span>SQL SERVER</span><span>★★★★★</span>
             </div>
           </div>
-          <div class="p-8 border-2 border-black dark:border-white">
+          <div
+            class="p-8 border-2 border-black dark:border-white hover:border-purplebrand transition-colors"
+          >
             <h4
               class="text-[10px] font-bold uppercase mb-6 text-purplebrand tracking-widest"
             >
@@ -265,14 +282,18 @@
           // LIVE_WORKS
         </h2>
         <div
-          class="grid md:grid-cols-3 gap-0 border-2 border-black dark:border-white"
+          class="grid md:grid-cols-3 gap-0 border-2 border-black dark:border-white overflow-hidden"
         >
           <a
             href="https://ahmedhaneen071.github.io/LA-imperial-Responsive_web_template/"
             target="_blank"
-            class="p-16 border-b md:border-b-0 md:border-r border-black dark:border-white hover:bg-purplebrand hover:text-white transition-all text-center"
+            class="p-16 border-b md:border-b-0 md:border-r border-black dark:border-white hover:bg-purplebrand hover:text-white transition-all text-center group"
           >
-            <h4 class="text-2xl font-black uppercase">La Imperial</h4>
+            <h4
+              class="text-2xl font-black uppercase group-hover:scale-110 transition-transform"
+            >
+              La Imperial
+            </h4>
             <p class="text-[10px] font-bold uppercase tracking-widest mt-2">
               Luxury Template
             </p>
@@ -280,9 +301,13 @@
           <a
             href="https://ahmedhaneen071.github.io/Ethereal-World-Beautiful-HTML5-Template-Design/"
             target="_blank"
-            class="p-16 border-b md:border-b-0 md:border-r border-black dark:border-white hover:bg-purplebrand hover:text-white transition-all text-center"
+            class="p-16 border-b md:border-b-0 md:border-r border-black dark:border-white hover:bg-purplebrand hover:text-white transition-all text-center group"
           >
-            <h4 class="text-2xl font-black uppercase">Ethereal</h4>
+            <h4
+              class="text-2xl font-black uppercase group-hover:scale-110 transition-transform"
+            >
+              Ethereal
+            </h4>
             <p class="text-[10px] font-bold uppercase tracking-widest mt-2">
               Creative Agency
             </p>
@@ -290,9 +315,13 @@
           <a
             href="https://ahmedhaneen071.github.io/Introspect-Simple-Beautiful-Web-Template/"
             target="_blank"
-            class="p-16 hover:bg-purplebrand hover:text-white transition-all text-center"
+            class="p-16 hover:bg-purplebrand hover:text-white transition-all text-center group"
           >
-            <h4 class="text-2xl font-black uppercase">Introspect</h4>
+            <h4
+              class="text-2xl font-black uppercase group-hover:scale-110 transition-transform"
+            >
+              Introspect
+            </h4>
             <p class="text-[10px] font-bold uppercase tracking-widest mt-2">
               Minimalist Web
             </p>

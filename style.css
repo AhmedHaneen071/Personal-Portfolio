@@ -1,14 +1,16 @@
 * {
   scroll-behavior: smooth;
+  cursor: crosshair; /* Added for a more "design tool" feel */
 }
 
+/* CRT Scanline Effect */
 .crt-lines {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.03) 50%);
   background-size: 100% 4px;
   z-index: 1000;
   pointer-events: none;
@@ -17,40 +19,44 @@
 /* Scroll Animations */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(30px);
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
 .scroll-reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Sidebar */
+/* Sidebar Navigation */
 #mobile-menu.active {
   transform: translateX(0);
 }
 
-/* Buttons - STRICT BLACK/WHITE/PURPLE */
+/* Custom Buttons */
 .satner-btn {
   background: #854fee;
   color: white !important;
-  padding: 25px 55px;
+  padding: 20px 45px;
   font-weight: 900;
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 3px;
   display: inline-block;
   transition: 0.4s;
+  box-shadow: 0 10px 20px rgba(133, 79, 238, 0.2);
 }
+
 .satner-btn:hover {
   background: #000;
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .satner-btn-outline {
   border: 2px solid #000;
   color: #000;
-  padding: 25px 55px;
+  padding: 20px 45px;
   font-weight: 900;
   text-transform: uppercase;
   font-size: 11px;
@@ -58,23 +64,37 @@
   display: inline-block;
   transition: 0.4s;
 }
+
 .dark .satner-btn-outline {
   border-color: #fff;
   color: #fff;
 }
+
 .satner-btn-outline:hover {
   background: #854fee;
   border-color: #854fee;
   color: #fff !important;
 }
 
+/* Experience Card Hover */
+.experience-card:hover {
+  box-shadow: 10px 10px 0px #854fee;
+  transform: translate(-5px, -5px);
+}
+
+/* Text Glow */
+.glow-text {
+  text-shadow: 0 0 20px rgba(133, 79, 238, 0.4);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #000;
 }
 ::-webkit-scrollbar-thumb {
   background: #854fee;
+  border-radius: 10px;
 }
