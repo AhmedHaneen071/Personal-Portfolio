@@ -1,23 +1,30 @@
 // Theme
-const body = document.body;
+const rootEl = document.documentElement;
 const themeBtn = document.getElementById('themeBtn');
 
-if (localStorage.getItem('theme') === 'light') body.classList.add('light');
+// Initialize theme from storage
+if (localStorage.getItem('theme') === 'light') rootEl.classList.add('light');
 
-themeBtn.addEventListener('click', () => {
-    body.classList.toggle('light');
-    localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
-});
+// Defensive listener attachment
+if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        rootEl.classList.toggle('light');
+        localStorage.setItem('theme', rootEl.classList.contains('light') ? 'light' : 'dark');
+    });
+}
 
 // Sticky nav
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+}
 
 // Mobile menu
 function toggleMenu() {
-    document.getElementById('menuList').classList.toggle('open');
+    const menu = document.getElementById('menuList');
+    if (menu) menu.classList.toggle('open');
 }
 
 // Close mobile menu on link click
@@ -46,69 +53,77 @@ document.querySelectorAll('.portfolio-card, .repo-card, .about-img, .about-text'
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Elements (may not exist in this markup — guard defensively)
     const mobileMenu = document.getElementById('mobile-menu');
-    const menuToggle = document.getElementById('menu-toggle');
+    const menuToggle = document.getElementById('menu-toggle') || document.querySelector('.menu-icon');
     const menuClose = document.getElementById('menu-close');
-    const themeToggle = document.getElementById('theme-toggle');
 
-    // 1. Theme Logic
+    // Theme: ensure only one consistent approach (root .light class)
+    const themeToggle = document.getElementById('themeBtn');
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
+    if (savedTheme === 'light') document.documentElement.classList.add('light');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('light');
+            const isLight = document.documentElement.classList.contains('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
     }
 
-    themeToggle.onclick = () => {
-        document.documentElement.classList.toggle('dark');
-        const isDark = document.documentElement.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    };
-
-    // 2. Mobile Menu Logic
-    menuToggle.onclick = () => {
-        mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
-    };
-
-    menuClose.onclick = () => {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    };
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.mob-link').forEach((link) => {
-        link.onclick = () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        };
-    });
-
-    // 3. Scroll Reveal Observer
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px',
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+    // Mobile menu logic with fallbacks
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            if (mobileMenu) {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Fallback to existing desktop/mobile list toggle
+                toggleMenu();
             }
         });
-    }, observerOptions);
+    }
 
-    document.querySelectorAll('.scroll-reveal').forEach((el) => {
-        observer.observe(el);
+    if (menuClose && mobileMenu) {
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close menu links (works for both mobileMenu and #menuList fallback)
+    document.querySelectorAll('.mob-link').forEach((link) => {
+        link.addEventListener('click', () => {
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            } else {
+                document.getElementById('menuList')?.classList.remove('open');
+            }
+        });
     });
 
-    // 4. Smooth Anchor Scrolling
+    // Scroll reveal observer (separate instance to avoid name collisions)
+    const scrollObserverOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, scrollObserverOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        scrollObserver.observe(el);
+    });
+
+    // Smooth anchor scrolling (guard target existence)
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                });
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
