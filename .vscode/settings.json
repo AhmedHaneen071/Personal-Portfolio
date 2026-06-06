@@ -1,0 +1,25 @@
+{
+  "workbench.colorCustomizations": {
+    "editorSuggestWidget.selectedBackground": "#231739",
+    "sideBar.background": "#191521",
+    "list.activeSelectionBackground": "#231739",
+    "list.inactiveSelectionBackground": "#231739",
+    "list.focusBackground": "#231739",
+    "list.hoverBackground": "#231739",
+    "terminalCursor.foreground": "#C45DFF",
+    "activityBar.background": "#19322C",
+    "titleBar.activeBackground": "#23463E",
+    "titleBar.activeForeground": "#F6FBFA"
+  },
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.Active": "Indent",
+  "animations.Command-Palette": "Fade",
+  "animations.CursorAnimation": true,
+  "animations.CursorAnimationOptions": {
+    "TrailLength": 20
+  },
+  "animations.Focus-Dimming-Mode": "Full Window",
+  "animations.Scrolling": "Fade",
+  "animations.UseCursorColorForCursorAnimation": true,
+  "editor.defaultFormatter": "drcika.apc-extension"
+}
