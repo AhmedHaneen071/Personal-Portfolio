@@ -3,109 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Ahmed Haneen — Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="main-container">
-            <header id="home">
-                <nav>
-                    <div class="container">
-                        <div class="logo">
-                            <a href="#">
-                                <h2>Portfolio</h2>
-                            </a>
-                        </div>
-                        <div class="links">
-                            <ul>
-                                <li><a href="#home" class="home">Home</a></li>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#portfolio">Portfolio</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                                <li><button id="Themeswitch" class="Themeswitch"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <section class="hero">
-                    <div class="container">
-                        <h1>AHMED<span>HANEEN</span></h1>
-                        <a href="#contact">Get in Touch</a>
-                    </div>
-                </section>
-            </header>
 
-            <section class="about" id="about">
-                <div class="container">
-                    <div class="pfp">
-                        <div class="img">
-                            <img src="img/pfpicon.png" alt="Profile Icon">
-                        </div>
-                    </div>
-                    <div class="text">
-                        <div class="content">
-                            <h1>AHMED <span>HANEEN</span></h1>
-                            <p>
-                                My name is Ahmed Haneen. I am a graphic designer, and I'm very passionate and dedicated to my work.
-                                With 3 years of experience as a professional graphic designer, I have acquired the skills and knowledge.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="portfolio" id="portfolio">
-                <div class="container">
-                    <a href="portfolio/cuba/index.html" target="_blank">
-                        <div class="card">
-                                <img src="img/portfolio_item_1-01.png" alt="Portfolio Item 1">
-                        </div>
-                    </a>
-                    <a href="portfolio/ethereal/index.html" target="_blank">
-                        <div class="card">
-                                <img src="img/portfolio_item_2-01.png" alt="Portfolio Item 2">
-                        </div>
-                    </a>
-                    <a href="portfolio/introspect/index.html" target="_blank">
-                        <div class="card">
-                                <img src="img/portfolio_item_3-01.png" alt="Portfolio Item 3">
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <section class="contact" id="contact">
-                <div class="container">
-                    <form action="">
-                        <div class="type">
-                            <input placeholder="Name" class="input" name="name" type="text" required>
-                            <input placeholder="Email" class="input" name="email" type="email" required>
-                        </div>
-                        <textarea name="message" placeholder="Your message..." required></textarea>
-                        <input type="submit" value="Submit" class="submit">
-                    </form>
-                </div>
-            </section>
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="logo">AH<span>.</span></a>
+            <ul id="menuList">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button id="themeBtn" aria-label="Toggle theme">
+                        <i class="fa-solid fa-moon"></i>
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+            <button class="menu-icon" onclick="toggleMenu()" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-    </div>
-    <script src="https://kit.fontawesome.com/db6c4cd2c4.js" crossorigin="anonymous"></script>
-    <script src="js/jquery.js"></script>
-    <script>
-        $(document).ready(function () {
-            if (localStorage.getItem('darkMode') === 'true') {
-                $('body').addClass('dark-mode');
-            }
-            $('#Themeswitch').click(function () {
-                $('body').toggleClass('dark-mode');
+    </nav>
 
-                if ($('body').hasClass('dark-mode')) {
-                    localStorage.setItem('darkMode', 'true');
-                } else {
-                    localStorage.setItem('darkMode', 'false');
-                }
-            });
-        });
-    </script>
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="container hero-inner">
+            <div class="hero-tag">Designer &amp; Developer</div>
+            <h1>Ahmed<br><span>Haneen</span></h1>
+            <p>Creating compelling digital experiences through design and code.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-primary">View Work</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="container about-inner">
+            <div class="about-img">
+                <img src="img/pfpicon.png" alt="Ahmed Haneen">
+            </div>
+            <div class="about-text">
+                <div class="section-label">About Me</div>
+                <h2>Ahmed <span>Haneen</span></h2>
+                <p>
+                    My name is Ahmed Haneen. I am a graphic designer, and I'm very passionate and dedicated to my work.
+                    With 3 years of experience as a professional graphic designer, I have acquired the skills and knowledge
+                    necessary to create stunning visual solutions.
+                </p>
+                <div class="skills">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>Graphic Design</span><span>UI/UX</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Selected Work</div>
+                <h2>Portfolio</h2>
+            </div>
+            <div class="portfolio-grid">
+                <a href="portfolio/cuba/index.html" target="_blank" class="portfolio-card">
+                    <div class="card-img">
+                        <img src="img/portfolio_item_1-01.png" alt="Cuba Project">
+                    </div>
+                    <div class="card-info">
+                        <span>Web Design</span>
+                        <h3>Cuba</h3>
+                    </div>
+                </a>
+                <a href="portfolio/ethereal/index.html" target="_blank" class="portfolio-card">
+                    <div class="card-img">
+                        <img src="img/portfolio_item_2-01.png" alt="Ethereal Project">
+                    </div>
+                    <div class="card-info">
+                        <span>Web Design</span>
+                        <h3>Ethereal</h3>
+                    </div>
+                </a>
+                <a href="portfolio/introspect/index.html" target="_blank" class="portfolio-card">
+                    <div class="card-img">
+                        <img src="img/portfolio_item_3-01.png" alt="Introspect Project">
+                    </div>
+                    <div class="card-info">
+                        <span>Web Design</span>
+                        <h3>Introspect</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GITHUB REPOS -->
+    <section id="github" class="github-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Open Source</div>
+                <h2>GitHub Projects</h2>
+            </div>
+            <div class="repos-grid">
+
+                <a href="https://github.com/AhmedHaneen071/Online-Aptitude-Test-System" target="_blank" class="repo-card">
+                    <div class="repo-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Online Aptitude Test System</h3>
+                    <p>Online aptitude test system with timed exams, automated evaluation, and instant results.</p>
+                    <div class="repo-meta">
+                        <span class="repo-lang js-lang">JavaScript</span>
+                        <span class="repo-link">View Repo <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/AhmedHaneen071/Introspect-Simple-Beautiful-Web-Template" target="_blank" class="repo-card">
+                    <div class="repo-icon"><i class="fa-brands fa-html5"></i></div>
+                    <h3>Introspect Web Template</h3>
+                    <p>A clean, modern, and responsive landing page template crafted with HTML, CSS, and JavaScript.</p>
+                    <div class="repo-meta">
+                        <span class="repo-lang html-lang">HTML</span>
+                        <span class="repo-link">View Repo <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/AhmedHaneen071/LA-imperial-Responsive_web_template" target="_blank" class="repo-card">
+                    <div class="repo-icon"><i class="fa-brands fa-css3-alt"></i></div>
+                    <h3>LA Imperial Web Template</h3>
+                    <p>A modern, clean, and highly customizable one-page responsive website template built with HTML5, CSS3 &amp; Bootstrap.</p>
+                    <div class="repo-meta">
+                        <span class="repo-lang css-lang">CSS</span>
+                        <span class="repo-link">View Repo <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/AhmedHaneen071/Ethereal-World-Beautiful-HTML5-Template-Design" target="_blank" class="repo-card">
+                    <div class="repo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Ethereal World Template</h3>
+                    <p>A modern, visually stunning HTML5 template designed to create elegant, immersive, and responsive web experiences.</p>
+                    <div class="repo-meta">
+                        <span class="repo-lang css-lang">CSS</span>
+                        <span class="repo-link">View Repo <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/AhmedHaneen071/Task-Hub" target="_blank" class="repo-card featured">
+                    <div class="repo-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Task Hub</h3>
+                    <p>TaskHub is a full-stack project and task management system.</p>
+                    <div class="repo-meta">
+                        <span class="repo-lang ts-lang">TypeScript</span>
+                        <span class="repo-stars"><i class="fa-solid fa-star"></i> 2</span>
+                        <span class="repo-link">View Repo <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/AhmedHaneen071/Portfolio-Ahmed-Haneen" target="_blank" class="repo-card">
+                    <div class="repo-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Portfolio — Ahmed Haneen</h3>
+                    <p>Professional Portfolio of Ahmed Haneen — Full-Stack Developer &amp; Graphic Designer.</p>
+                    <div class="repo-meta">
+                        <span class="repo-lang html-lang">HTML</span>
+                        <span class="repo-link">View Repo <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+            </div>
+            <div class="github-cta">
+                <a href="https://github.com/AhmedHaneen071" target="_blank" class="btn btn-outline">
+                    <i class="fa-brands fa-github"></i> View All on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Let's Talk</div>
+                <h2>Contact Me</h2>
+            </div>
+            <form class="contact-form" action="">
+                <div class="form-row">
+                    <input placeholder="Name" name="name" type="text" required>
+                    <input placeholder="Email" name="email" type="email" required>
+                </div>
+                <textarea name="message" placeholder="Your message..." required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-inner">
+            <span class="logo">AH<span class="accent">.</span></span>
+            <p>© 2026 Ahmed Haneen. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/AhmedHaneen071" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/mayhoon_haneen/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61563055714197" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/db6c4cd2c4.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
