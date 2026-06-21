@@ -54,7 +54,7 @@ function observeElements(selector) {
     });
 }
 
-observeElements('.portfolio-card, .about-img, .about-text');
+observeElements('.portfolio-card, .about-header, .about-bio, .resume-section');
 
 document.addEventListener('DOMContentLoaded', () => {
     // Elements (may not exist in this markup — guard defensively)
