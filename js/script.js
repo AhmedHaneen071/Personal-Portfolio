@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── CONTACT FORM ────────────────────────────────────
     // ⚠️ Replace these with your EmailJS credentials (see setup steps below)
     const EMAILJS_PUBLIC_KEY = 'V0dpa80BvmhtMjre7';
-    const EMAILJS_SERVICE_ID = 'service_vaez1id';
+    const EMAILJS_SERVICE_ID = 'service_ztm16ra';
     const EMAILJS_TEMPLATE_ID = 'template_0wm199a';
 
     emailjs.init(EMAILJS_PUBLIC_KEY);
