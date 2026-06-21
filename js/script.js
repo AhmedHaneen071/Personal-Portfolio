@@ -62,19 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle') || document.querySelector('.menu-icon');
     const menuClose = document.getElementById('menu-close');
 
-    // Theme: ensure only one consistent approach (root .light class)
-    const themeToggle = document.getElementById('themeBtn');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') document.documentElement.classList.add('light');
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('light');
-            const isLight = document.documentElement.classList.contains('light');
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        });
-    }
-
     // Mobile menu logic with fallbacks
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
