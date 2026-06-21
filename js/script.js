@@ -34,23 +34,27 @@ document.querySelectorAll('#menuList a').forEach((link) => {
     });
 });
 
-// Scroll reveal
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((e) => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                observer.unobserve(e.target);
-            }
-        });
-    },
-    { threshold: 0.12 }
-);
+// Scroll reveal helper
+function observeElements(selector) {
+    const scrollObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    scrollObserver.unobserve(e.target);
+                }
+            });
+        },
+        { threshold: 0.12 }
+    );
 
-document.querySelectorAll('.portfolio-card, .repo-card, .about-img, .about-text').forEach((el) => {
-    el.classList.add('reveal');
-    observer.observe(el);
-});
+    document.querySelectorAll(selector).forEach((el) => {
+        el.classList.add('reveal');
+        scrollObserver.observe(el);
+    });
+}
+
+observeElements('.portfolio-card, .about-img, .about-text');
 
 document.addEventListener('DOMContentLoaded', () => {
     // Elements (may not exist in this markup — guard defensively)
@@ -127,4 +131,73 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ─── DYNAMIC GITHUB REPOS ──────────────────────────────
+    const GITHUB_USER = 'AhmedHaneen071';
+
+    function getLangClass(lang) {
+        const map = { JavaScript: 'js-lang', HTML: 'html-lang', CSS: 'css-lang', TypeScript: 'ts-lang' };
+        return map[lang] || '';
+    }
+
+    function getLangIcon(lang) {
+        const map = {
+            JavaScript: 'fa-solid fa-code',
+            HTML: 'fa-brands fa-html5',
+            CSS: 'fa-brands fa-css3-alt',
+            TypeScript: 'fa-solid fa-code',
+            Python: 'fa-brands fa-python',
+            'C#': 'fa-solid fa-code'
+        };
+        return map[lang] || 'fa-solid fa-folder';
+    }
+
+    function formatRepoName(name) {
+        return name.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    }
+
+    async function fetchGitHubRepos() {
+        const grid = document.querySelector('.repos-grid');
+        if (!grid) return;
+
+        try {
+            const res = await fetch(
+                `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100`
+            );
+            if (!res.ok) throw new Error('GitHub API error');
+            const repos = await res.json();
+
+            const ownRepos = repos.filter((r) => !r.fork);
+
+            grid.innerHTML = ownRepos
+                .map((repo) => {
+                    const lang = repo.language || 'Unknown';
+                    const langClass = getLangClass(lang);
+                    const icon = getLangIcon(lang);
+                    const isFeatured = repo.name === 'Task-Hub';
+
+                    return `
+                        <a href="${repo.html_url}" target="_blank" class="repo-card${isFeatured ? ' featured' : ''}">
+                            <div class="repo-icon"><i class="${icon}"></i></div>
+                            <h3>${formatRepoName(repo.name)}</h3>
+                            <p>${repo.description || 'No description provided.'}</p>
+                            <div class="repo-meta">
+                                <span class="repo-lang ${langClass}">${lang}</span>
+                                ${isFeatured ? `<span class="repo-stars"><i class="fa-solid fa-star"></i> ${repo.stargazers_count}</span>` : ''}
+                                <span class="repo-link">View Repo <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    `;
+                })
+                .join('');
+
+            // Observe new repo cards for scroll reveal
+            observeElements('.repos-grid .repo-card');
+        } catch (err) {
+            grid.innerHTML =
+                '<p style="color: var(--text-muted); text-align: center; padding: 2rem 0;">Failed to load GitHub repositories.</p>';
+        }
+    }
+
+    fetchGitHubRepos();
 });
