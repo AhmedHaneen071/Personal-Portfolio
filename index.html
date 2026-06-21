@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Ahmed Haneen — Portfolio</title>
-        <link rel="stylesheet" href="css/style.css?v=2" />
+        <link rel="stylesheet" href="css/style.css?v=3" />
     </head>
     <body>
         <!-- GLOBAL NAVIGATION -->
@@ -14,21 +14,19 @@
                 <ul id="menuList">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#github">Work</a></li>
                     <li><a href="#github">GitHub</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li>
-                        <!-- Theme Toggle Controls -->
-                        <button id="themeBtn" aria-label="Toggle theme">
-                            <i class="fa-solid fa-moon"></i>
-                            <i class="fa-solid fa-sun"></i>
-                        </button>
-                    </li>
                 </ul>
-                <!-- Mobile Menu Trigger -->
-                <button class="menu-icon" onclick="toggleMenu()" aria-label="Open menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <div class="nav-actions">
+                    <button id="themeBtn" aria-label="Toggle theme">
+                        <i class="fa-solid fa-moon"></i>
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <button class="menu-icon" onclick="toggleMenu()" aria-label="Open menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </nav>
 
@@ -39,7 +37,7 @@
                 <h1>Ahmed<br /><span>Haneen</span></h1>
                 <p>Creating compelling digital experiences through design and code.</p>
                 <div class="hero-actions">
-                    <a href="#portfolio" class="btn btn-primary">View Work</a>
+                    <a href="#github" class="btn btn-primary">View Work</a>
                     <a href="#contact" class="btn btn-outline">Get in Touch</a>
                 </div>
             </div>
@@ -59,9 +57,8 @@
                     <div class="contact-info">
                         <span><i class="fa-solid fa-location-dot"></i> Hyderabad, Pakistan</span>
                         <span><i class="fa-solid fa-phone"></i> 03253019374</span>
+                        <span><i class="fa-solid fa-phone"></i> 03399000731</span>
                         <span><i class="fa-solid fa-envelope"></i> shaikhhaneen18@gmail.com</span>
-                        <span><i class="fa-brands fa-github"></i> <a href="https://github.com/AhmedHaneen071" target="_blank">GitHub Profile</a></span>
-                        <span><i class="fa-solid fa-globe"></i> <a href="https://portfolio-haneen-2026.web.app/" target="_blank">Portfolio Site</a></span>
                     </div>
                 </div>
 
@@ -91,17 +88,38 @@
                     <h3>Work Experience</h3>
                     <div class="experience-item">
                         <div class="exp-header">
-                            <h4>SMS Industries</h4>
+                            <h4>Newway Packages</h4>
                             <span class="exp-role">Graphic Designer</span>
-                            <span class="exp-date">2024 – Present</span>
+                            <span class="exp-date">2023 – Present</span>
                         </div>
                         <ul>
-                            <li>Developed comprehensive brand identities and industrial marketing collateral.</li>
-                            <li>Collaborated with cross-functional teams to align design with business goals.</li>
-                            <li>Increased brand visibility by 30% within 6 months through effective creative output.</li>
-                            <li>Designed high-engagement social media campaigns and print media assets.</li>
-                            <li>Ensured visual consistency across digital platforms.</li>
-                            <li>Worked closely with marketing teams to support creative strategies.</li>
+                            <li>Developed packaging designs for diverse product categories.</li>
+                            <li>Ensured print-ready artwork aligned with client specifications.</li>
+                            <li>Collaborated with production team to maintain quality standards.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h4>SMS Industries</h4>
+                            <span class="exp-role">Graphic Designer</span>
+                            <span class="exp-date">2019 – 2022</span>
+                        </div>
+                        <ul>
+                            <li>Designed branding materials and industrial marketing collateral.</li>
+                            <li>Managed multiple design projects from concept to final delivery.</li>
+                            <li>Created catalogs, brochures, and promotional materials.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h4>AAR Printers</h4>
+                            <span class="exp-role">Graphic Designer</span>
+                            <span class="exp-date"> <span class="exp-badge">Part Time</span></span>
+                        </div>
+                        <ul>
+                            <li>Prepared print-ready files for commercial printing projects.</li>
+                            <li>Assisted with layout design and client revisions.</li>
+                            <li>Maintained brand consistency across print materials.</li>
                         </ul>
                     </div>
                     <div class="experience-item">
@@ -110,6 +128,11 @@
                             <span class="exp-role">Graphic Designer</span>
                             <span class="exp-date">2019 – 2020</span>
                         </div>
+                        <ul>
+                            <li>Designed menus, flyers, and promotional materials.</li>
+                            <li>Created social media graphics for marketing campaigns.</li>
+                            <li>Developed visual content to enhance brand presence.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -169,13 +192,14 @@
                     <div class="section-label">Let's Talk</div>
                     <h2>Contact Me</h2>
                 </div>
-                <form class="contact-form" action="">
+                <form class="contact-form" id="contactForm">
                     <div class="form-row">
-                        <input placeholder="Name" name="name" type="text" required />
-                        <input placeholder="Email" name="email" type="email" required />
+                        <input placeholder="Name" name="from_name" type="text" required />
+                        <input placeholder="Email" name="from_email" type="email" required />
                     </div>
                     <textarea name="message" placeholder="Your message..." required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div class="form-status"></div>
                 </form>
             </div>
         </section>
@@ -207,7 +231,8 @@
 
         <!-- GLOBAL UTILITIES & SCRIPTS -->
         <script src="https://kit.fontawesome.com/db6c4cd2c4.js" crossorigin="anonymous"></script>
-        <script src="js/script.js?v=3"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script src="js/script.js?v=5"></script>
     </body>
 </html>
 

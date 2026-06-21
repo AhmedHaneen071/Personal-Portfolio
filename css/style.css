@@ -91,6 +91,11 @@ ul { list-style: none; }
     letter-spacing: .05em;
 }
 .logo span, .logo .accent { color: var(--accent); }
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
 #menuList {
     display: flex;
     align-items: center;
@@ -278,6 +283,19 @@ ul { list-style: none; }
     font-size: .85rem;
     color: var(--accent);
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.exp-badge {
+    font-size: .7rem;
+    font-weight: 600;
+    padding: .2em .6em;
+    border-radius: 100px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .05em;
 }
 .exp-date {
     font-size: .8rem;
@@ -423,6 +441,24 @@ ul { list-style: none; }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder { color: var(--text-muted); }
 .contact-form .btn { align-self: flex-start; border: 2px solid transparent; }
+.form-status {
+    font-size: .9rem;
+    padding: .6em 1em;
+    border-radius: var(--radius);
+    display: none;
+}
+.form-status.success {
+    display: block;
+    background: #1a3a2a;
+    color: #4ade80;
+    border: 1px solid #4ade8033;
+}
+.form-status.error {
+    display: block;
+    background: #3a1a1a;
+    color: #f87171;
+    border: 1px solid #f8717133;
+}
 
 /* ─── FOOTER ─────────────────────────────────────────────── */
 footer {

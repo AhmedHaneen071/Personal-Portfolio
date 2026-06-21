@@ -56,6 +56,26 @@ function observeElements(selector) {
 
 observeElements('.portfolio-card, .about-header, .about-bio, .resume-section');
 
+// Smooth anchor scrolling
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// Close mobile menu on nav link click
+document.querySelectorAll('#menuList a').forEach((link) => {
+    link.addEventListener('click', () => {
+        document.getElementById('menuList')?.classList.remove('open');
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // Elements (may not exist in this markup — guard defensively)
     const mobileMenu = document.getElementById('mobile-menu');
@@ -69,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenu.classList.add('active');
                 document.body.style.overflow = 'hidden';
             } else {
-                // Fallback to existing desktop/mobile list toggle
                 toggleMenu();
             }
         });
@@ -94,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Scroll reveal observer (separate instance to avoid name collisions)
+    // Scroll reveal observer (separate instance)
     const scrollObserverOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -104,19 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.scroll-reveal').forEach((el) => {
         scrollObserver.observe(el);
-    });
-
-    // Smooth anchor scrolling (guard target existence)
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (!href || href === '#') return;
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
     });
 
     // ─── DYNAMIC GITHUB REPOS ──────────────────────────────
@@ -187,4 +193,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     fetchGitHubRepos();
+
+    // ─── CONTACT FORM ────────────────────────────────────
+    // ⚠️ Replace these with your EmailJS credentials (see setup steps below)
+    const EMAILJS_PUBLIC_KEY = 'V0dpa80BvmhtMjre7';
+    const EMAILJS_SERVICE_ID = 'service_vaez1id';
+    const EMAILJS_TEMPLATE_ID = 'template_0wm199a';
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.querySelector('.form-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+
+            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+                .then(() => {
+                    formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                })
+                .catch(() => {
+                    formStatus.textContent = 'Failed to send. Please email me directly at shaikhhaneen18@gmail.com';
+                    formStatus.className = 'form-status error';
+                })
+                .finally(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                });
+        });
+    }
 });
