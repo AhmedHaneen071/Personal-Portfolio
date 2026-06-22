@@ -2,4 +2,4 @@
 firebase.json
 .vscode/
 node_modules/
-node_modules
+dist/
