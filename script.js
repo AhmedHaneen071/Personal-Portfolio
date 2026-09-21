@@ -98,6 +98,10 @@ const CONFIG = {
                 card.target = '_blank';
                 card.rel = 'noopener';
                 card.setAttribute('data-cursor', 'OPEN \u2197');
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openRepoModal(repo, i);
+                });
 
                 const num = document.createElement('span');
                 num.className = 'work-number';
