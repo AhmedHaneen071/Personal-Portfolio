@@ -1195,10 +1195,7 @@ footer {
 }
 .contact-title em {
   font-style: normal;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--primary);
 }
 .contact-sub {
   color: var(--text-dim);
