@@ -19,22 +19,6 @@
         if (pre) pre.classList.add('done');
     }
 
-    /* ================= THEME ================= */
-    (function initTheme() {
-        const root = document.documentElement;
-        const saved = localStorage.getItem('theme');
-        if (saved) root.setAttribute('data-theme', saved);
-
-        const toggle = document.getElementById('theme-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                root.setAttribute('data-theme', next);
-                localStorage.setItem('theme', next);
-            });
-        }
-    })();
-
     /* ================= SCROLL LOCK ================= */
     function lockScroll(on) {
         document.body.style.overflow = on ? 'hidden' : '';
