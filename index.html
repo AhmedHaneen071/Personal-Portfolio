@@ -1,412 +1,418 @@
 <!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AHMED HANEEN // PORTFOLIO 2026</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: { purplebrand: "#854fee" },
-            animation: {
-              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-            },
-          },
-        },
-      };
-    </script>
-  </head>
-  <body
-    class="bg-white dark:bg-black text-black dark:text-white transition-colors duration-500 overflow-x-hidden font-['Inter']"
-  >
-    <div class="crt-lines"></div>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AHMED HANEEN // PORTFOLIO 2026</title>
+        <link rel="icon" type="image/svg+xml" href="Logo-01.svg" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    </head>
+    <body>
+        <!-- Noise overlay -->
+        <div class="noise" aria-hidden="true"></div>
 
-    <header
-      class="fixed top-0 w-full z-[100] px-6 py-4 border-b border-black dark:border-white/20 backdrop-blur-md bg-white/80 dark:bg-black/50"
-    >
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex flex-col">
-          <span class="text-[10px] font-bold tracking-[0.4em] uppercase"
-            >AHMED HANEEN</span
-          >
-          <span
-            class="text-[8px] text-purplebrand animate-pulse uppercase tracking-widest"
-            >● System Online // 2026</span
-          >
+        <!-- Scroll progress -->
+        <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+        <!-- Preloader -->
+        <div class="preloader" id="preloader" aria-hidden="true">
+            <div class="preloader-inner">
+                <div class="preloader-logo">
+                    <img src="Logo-01.svg" alt="" />
+                </div>
+                <span class="preloader-name">AHMED HANEEN</span>
+                <div class="preloader-bar"><span id="preloader-fill"></span></div>
+                <div class="preloader-count" id="preloader-count">000</div>
+            </div>
         </div>
-        <div class="flex items-center gap-6">
-          <nav
-            class="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-widest"
-          >
-            <a href="#about" class="hover:text-purplebrand transition">About</a>
-            <a href="#experience" class="hover:text-purplebrand transition"
-              >Experience</a
-            >
-            <a href="#projects" class="hover:text-purplebrand transition"
-              >Works</a
-            >
-          </nav>
-          <button
-            id="theme-toggle"
-            class="text-lg hover:rotate-180 transition-transform duration-500"
-          >
-            <i class="fas fa-circle-half-stroke"></i>
-          </button>
-          <button id="menu-toggle" class="md:hidden text-2xl">
-            <i class="fas fa-bars"></i>
-          </button>
+
+        <!-- Custom cursor -->
+        <div class="cursor-dot" aria-hidden="true"></div>
+        <div class="cursor-ring" aria-hidden="true"></div>
+
+        <!-- Header -->
+        <header class="site-header" id="site-header">
+            <div class="header-inner">
+                <a href="#about" class="header-logo" data-magnetic>
+                    <img src="Logo-01.svg" alt="Ahmed Haneen Logo" class="header-logo-img" />
+                    <span class="header-logo-text">
+                        <span class="header-logo-name">AHMED HANEEN</span>
+                        <span class="header-logo-status">
+                            <i></i>System Online
+                        </span>
+                    </span>
+                </a>
+
+                <nav class="header-nav" aria-label="Primary">
+                    <a href="#about" data-nav>About</a>
+                    <a href="#experience" data-nav>Experience</a>
+                    <a href="#projects" data-nav>Works</a>
+                    <a href="#contact" data-nav>Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme">
+                        <span class="icon-sun" aria-hidden="true"></span>
+                        <span class="icon-moon" aria-hidden="true"></span>
+                    </button>
+                    <button id="menu-toggle" class="icon-btn menu-btn" type="button" aria-label="Open menu">
+                        <span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <button id="menu-close" class="menu-close icon-btn" type="button" aria-label="Close menu">
+                <span></span>
+            </button>
+            <nav class="mobile-menu-links" aria-label="Mobile">
+                <a href="#about" class="mob-link" data-index="01">About</a>
+                <a href="#experience" class="mob-link" data-index="02">Experience</a>
+                <a href="#projects" class="mob-link" data-index="03">Works</a>
+                <a href="#contact" class="mob-link" data-index="04">Contact</a>
+            </nav>
+            <div class="mobile-menu-foot">
+                <span>shaikhhaneen18@gmail.com</span>
+                <span>Hyderabad / Pakistan</span>
+            </div>
         </div>
-      </div>
-    </header>
 
-    <div
-      id="mobile-menu"
-      class="fixed inset-0 z-[110] bg-white dark:bg-black translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8 text-2xl font-black uppercase"
-    >
-      <button id="menu-close" class="absolute top-6 right-8 text-2xl">
-        <i class="fas fa-times"></i>
-      </button>
-      <a href="#about" class="mob-link">About</a>
-      <a href="#experience" class="mob-link">Experience</a>
-      <a href="#projects" class="mob-link">Works</a>
-      <a href="#contact" class="mob-link text-purplebrand">Contact</a>
-    </div>
+        <main id="main">
+            <!-- ==================== HERO ==================== -->
+            <section id="about" class="hero section">
+                <div class="hero-float hero-float-a" aria-hidden="true">GRAPHIC<span>DESIGN</span></div>
+                <div class="hero-float hero-float-b" aria-hidden="true">SOFTWARE<span>ENGINEERING</span></div>
+                <div class="hero-float hero-float-c" aria-hidden="true">3+ YRS<span>EXPERIENCE</span></div>
+                <div class="hero-float hero-float-d" aria-hidden="true">UI / UX<span>FOCUS</span></div>
 
-    <main class="max-w-7xl mx-auto px-6">
-      <section
-        id="about"
-        class="min-h-screen flex items-center pt-20 scroll-reveal"
-      >
-        <div>
-          <h1
-            class="text-7xl md:text-[11rem] font-black mb-6 tracking-tighter leading-[0.85] uppercase"
-          >
-            Ahmed <br /><span class="text-purplebrand glow-text">Haneen</span>
-          </h1>
-          <p
-            class="text-lg md:text-xl font-medium max-w-2xl leading-relaxed mb-10 opacity-70"
-          >
-            Creative and logic-driven professional with over 3 years of
-            experience in Graphic Design and an evolving expertise in Software
-            Engineering. Currently at SMS Industries.
-          </p>
-          <a href="#contact" class="satner-btn">Start Project</a>
-        </div>
-      </section>
+                <div class="hero-container">
+                    <p class="hero-kicker" data-reveal="fade-down">
+                        <span class="pulse-dot"></span> PORTFOLIO — 2026 / GRAPHIC DESIGNER &amp; DEVELOPER
+                    </p>
 
-      <section
-        id="experience"
-        class="py-24 border-t border-black dark:border-white"
-      >
-        <div class="grid md:grid-cols-2 gap-20">
-          <div class="scroll-reveal">
-            <h2
-              class="text-purplebrand text-xs font-black uppercase tracking-[0.5em] mb-12"
-            >
-              // EXPERIENCE
-            </h2>
-            <div class="space-y-10">
-              <div
-                class="experience-card p-10 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-purplebrand hover:text-white transition-all group"
-              >
-                <span
-                  class="text-[10px] font-bold uppercase opacity-60 group-hover:opacity-100"
-                  >2024 - PRESENT</span
-                >
-                <h3 class="text-3xl font-black mt-2 uppercase">
-                  Graphic Designer
-                </h3>
-                <h4
-                  class="text-purplebrand group-hover:text-white text-xs font-bold mb-6 uppercase tracking-widest"
-                >
-                  SMS Industries, Hyderabad
-                </h4>
-                <ul
-                  class="text-sm space-y-3 opacity-70 group-hover:opacity-100"
-                >
-                  <li>• Specializing in industrial marketing and design.</li>
-                  <li>• Increased brand visibility by 30% over 6 months.</li>
-                  <li>• Developing comprehensive brand identities.</li>
-                </ul>
-              </div>
-              <div
-                class="experience-card p-10 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-purplebrand hover:text-white transition-all group"
-              >
-                <span
-                  class="text-[10px] font-bold uppercase opacity-60 group-hover:opacity-100"
-                  >2019 - 2020</span
-                >
-                <h3 class="text-3xl font-black mt-2 uppercase">
-                  Junior Designer
-                </h3>
-                <h4
-                  class="text-purplebrand group-hover:text-white text-xs font-bold mb-6 uppercase tracking-widest"
-                >
-                  TryFry, Hyderabad
-                </h4>
-                <p class="text-sm opacity-70 group-hover:opacity-100">
-                  Focused on digital and printed media within a creative agency
-                  environment.
+                    <h1 class="hero-title" aria-label="Ahmed Haneen">
+                        <span class="hero-line"><span class="hero-char-wrap">A</span><span class="hero-char-wrap">H</span><span class="hero-char-wrap">M</span><span class="hero-char-wrap">E</span><span class="hero-char-wrap">D</span></span>
+                        <span class="hero-line hero-line-accent">
+                            <span class="hero-char-wrap">H</span><span class="hero-char-wrap">A</span><span class="hero-char-wrap">N</span><span class="hero-char-wrap">E</span><span class="hero-char-wrap">E</span><span class="hero-char-wrap">N</span><span class="hero-cursor">_</span>
+                        </span>
+                    </h1>
+
+                    <div class="hero-row">
+                        <div class="hero-text" data-reveal="fade-up">
+                            <p>
+                                Creative and logic-driven professional with over 3 years of experience
+                                in <strong>Graphic Design</strong> and an evolving expertise in
+                                <strong>Software Engineering</strong>. Currently at
+                                <strong>SMS Industries</strong>.
+                            </p>
+                            <div class="hero-cta">
+                                <a href="#contact" class="btn btn-primary magnetic" data-cursor="GO" data-magnetic>
+                                    <span>Start Project</span>
+                                </a>
+                                <a href="Ahmed-Haneen-CV.pdf" target="_blank" class="btn btn-outline" data-cursor="CV" data-magnetic>
+                                    <span>Download CV</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <ul class="hero-stats" data-reveal="fade-up">
+                            <li><span class="stat-num" data-count="3">0</span><span class="stat-label">Years<br />Experience</span></li>
+                            <li><span class="stat-num" data-count="5">0</span><span class="stat-label">Skills<br />Mastered</span></li>
+                            <li><span class="stat-num" data-count="3">0</span><span class="stat-label">Live<br />Projects</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="#experience" class="scroll-cue" data-reveal="fade-up" aria-label="Scroll to experience">
+                    <span>SCROLL</span>
+                    <span class="scroll-cue-line"></span>
+                </a>
+            </section>
+
+            <!-- ==================== MARQUEE ==================== -->
+            <div class="marquee" aria-hidden="true">
+                <div class="marquee-track">
+                    <span>GRAPHIC DESIGN</span><i>◆</i>
+                    <span>BRANDING</span><i>◆</i>
+                    <span>SOFTWARE ENGINEERING</span><i>◆</i>
+                    <span>INDUSTRIAL MARKETING</span><i>◆</i>
+                    <span>UI / UX</span><i>◆</i>
+                    <span>ILLUSTRATION</span><i>◆</i>
+                    <span>CREATIVE THINKING</span><i>◆</i>
+                    <span>GRAPHIC DESIGN</span><i>◆</i>
+                    <span>BRANDING</span><i>◆</i>
+                    <span>SOFTWARE ENGINEERING</span><i>◆</i>
+                    <span>INDUSTRIAL MARKETING</span><i>◆</i>
+                    <span>UI / UX</span><i>◆</i>
+                    <span>ILLUSTRATION</span><i>◆</i>
+                    <span>CREATIVE THINKING</span><i>◆</i>
+                </div>
+            </div>
+
+            <!-- ==================== EXPERIENCE ==================== -->
+            <section id="experience" class="section section-tall">
+                <div class="section-head" data-reveal="fade-up">
+                    <span class="section-index">[01]</span>
+                    <h2 class="section-title" data-split>Experience</h2>
+                    <p class="section-sub">Two roles. One rising trajectory.</p>
+                </div>
+
+                <div class="timeline">
+                    <article class="xp-card" data-reveal="fade-left">
+                        <div class="xp-meta">
+                            <span class="xp-num">01</span>
+                            <span class="xp-date">2024 — PRESENT</span>
+                        </div>
+                        <div class="xp-body">
+                            <h3>Graphic Designer</h3>
+                            <h4>SMS Industries, Hyderabad</h4>
+                            <ul>
+                                <li>Specializing in industrial marketing and design.</li>
+                                <li>Increased brand visibility by 30% over 6 months.</li>
+                                <li>Developing comprehensive brand identities.</li>
+                            </ul>
+                            <div class="xp-tags">
+                                <span>Branding</span><span>Industrial</span><span>Marketing</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="xp-card" data-reveal="fade-right">
+                        <div class="xp-meta">
+                            <span class="xp-num">02</span>
+                            <span class="xp-date">2019 — 2020</span>
+                        </div>
+                        <div class="xp-body">
+                            <h3>Junior Designer</h3>
+                            <h4>TryFry, Hyderabad</h4>
+                            <p class="xp-text">
+                                Focused on digital and printed media within a creative agency environment.
+                            </p>
+                            <div class="xp-tags">
+                                <span>Digital</span><span>Print</span><span>Agency</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ==================== EDUCATION ==================== -->
+            <section class="section">
+                <div class="section-head" data-reveal="fade-up">
+                    <span class="section-index">[02]</span>
+                    <h2 class="section-title" data-split>Education</h2>
+                    <p class="section-sub">The foundation behind the craft.</p>
+                </div>
+
+                <div class="edu-grid">
+                    <div class="edu-card" data-reveal="zoom">
+                        <span class="edu-degree">B1</span>
+                        <h3>Software Engineering</h3>
+                        <p>Aptech Defence<br />Hyderabad, Pakistan</p>
+                    </div>
+                    <div class="edu-card" data-reveal="zoom">
+                        <span class="edu-degree">B2</span>
+                        <h3>Undergraduate Program</h3>
+                        <p>HITMS<br />Hyderabad, Pakistan</p>
+                    </div>
+                    <div class="edu-card" data-reveal="zoom">
+                        <span class="edu-degree">B3</span>
+                        <h3>Diploma</h3>
+                        <p>Gexton Education<br />Hyderabad, Pakistan</p>
+                    </div>
+                    <div class="edu-card" data-reveal="zoom">
+                        <span class="edu-degree">B4</span>
+                        <h3>Matriculation</h3>
+                        <p>Ghulam Hussain Hidayatullah<br />High School</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SKILLS ==================== -->
+            <section class="section skills-section">
+                <div class="section-head" data-reveal="fade-up">
+                    <span class="section-index">[03]</span>
+                    <h2 class="section-title" data-split>Skills Rating</h2>
+                    <p class="section-sub">Measured and battle-tested.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-panel" data-reveal="fade-up">
+                        <span class="skill-cat">ENGINEERING</span>
+                        <div class="skill-row" data-bar="95">
+                            <div class="skill-row-head">
+                                <span>HTML / CSS / JS</span>
+                                <span class="skill-stars">★★★★★</span>
+                            </div>
+                            <div class="skill-bar"><span></span></div>
+                        </div>
+                        <div class="skill-row" data-bar="92">
+                            <div class="skill-row-head">
+                                <span>SQL SERVER</span>
+                                <span class="skill-stars">★★★★★</span>
+                            </div>
+                            <div class="skill-bar"><span></span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel" data-reveal="fade-up">
+                        <span class="skill-cat">CREATIVE</span>
+                        <div class="skill-row" data-bar="96">
+                            <div class="skill-row-head">
+                                <span>ILLUSTRATOR</span>
+                                <span class="skill-stars">★★★★★</span>
+                            </div>
+                            <div class="skill-bar"><span></span></div>
+                        </div>
+                        <div class="skill-row" data-bar="84">
+                            <div class="skill-row-head">
+                                <span>PHOTOSHOP</span>
+                                <span class="skill-stars">★★★★☆</span>
+                            </div>
+                            <div class="skill-bar"><span></span></div>
+                        </div>
+                    </div>
+
+                    <figure class="skill-quote" data-reveal="zoom">
+                        <span class="skill-quote-mark">"</span>
+                        <blockquote>
+                            Strategic thinker and tech enthusiast. Gaming and sports develop my quick
+                            reflexes.
+                        </blockquote>
+                        <figcaption>— AHMED HANEEN</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ==================== PROJECTS ==================== -->
+            <section id="projects" class="section works-section">
+                <div class="section-head" data-reveal="fade-up">
+                    <span class="section-index">[04]</span>
+                    <h2 class="section-title" data-split>Live Works</h2>
+                    <p class="section-sub">Production templates, pressed live.</p>
+                </div>
+
+                <div class="works-list">
+                    <a
+                        class="work-card"
+                        href="https://ahmedhaneen071.github.io/LA-imperial-Responsive_web_template/"
+                        target="_blank"
+                        rel="noopener"
+                        data-reveal="fade-up"
+                        data-cursor="OPEN ↗"
+                    >
+                        <span class="work-number">W/01</span>
+                        <h3 class="work-title">La <em>Imperial</em></h3>
+                        <div class="work-foot">
+                            <span>Luxury Template</span>
+                            <span class="work-arrow">↗</span>
+                        </div>
+                        <div class="work-image" style="background-image: url('Logo-01.svg')"></div>
+                    </a>
+
+                    <a
+                        class="work-card"
+                        href="https://ahmedhaneen071.github.io/Ethereal-World-Beautiful-HTML5-Template-Design/"
+                        target="_blank"
+                        rel="noopener"
+                        data-reveal="fade-up"
+                        data-cursor="OPEN ↗"
+                    >
+                        <span class="work-number">W/02</span>
+                        <h3 class="work-title">Ethe<em>real</em></h3>
+                        <div class="work-foot">
+                            <span>Creative Agency</span>
+                            <span class="work-arrow">↗</span>
+                        </div>
+                        <div class="work-image" style="background-image: url('Logo-01.svg')"></div>
+                    </a>
+
+                    <a
+                        class="work-card"
+                        href="https://ahmedhaneen071.github.io/Introspect-Simple-Beautiful-Web-Template/"
+                        target="_blank"
+                        rel="noopener"
+                        data-reveal="fade-up"
+                        data-cursor="OPEN ↗"
+                    >
+                        <span class="work-number">W/03</span>
+                        <h3 class="work-title">Intro<em>spect</em></h3>
+                        <div class="work-foot">
+                            <span>Minimalist Web</span>
+                            <span class="work-arrow">↗</span>
+                        </div>
+                        <div class="work-image" style="background-image: url('Logo-01.svg')"></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ==================== CONTACT ==================== -->
+            <section id="contact" class="section contact-section">
+                <p class="contact-kicker" data-reveal="fade-up">HAVE A PROJECT IN MIND?</p>
+                <h2 class="contact-title" data-split>
+                    Let's create something
+                    <em>great</em>.
+                </h2>
+                <p class="contact-sub" data-reveal="fade-up">
+                    Open to freelance work, collaborations, and bold ideas. Say hello — I usually
+                    reply within 24 hours.
                 </p>
-              </div>
-            </div>
-          </div>
+                <div class="contact-cta" data-reveal="fade-up">
+                    <a href="mailto:shaikhhaneen18@gmail.com" class="btn btn-primary btn-xl magnetic" data-cursor="✉" data-magnetic>
+                        <span>Email Me</span>
+                    </a>
+                    <a href="https://wa.me/923253019374" target="_blank" rel="noopener" class="btn btn-outline btn-xl magnetic" data-cursor="WA" data-magnetic>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </section>
+        </main>
 
-          <div class="scroll-reveal">
-            <h2
-              class="text-purplebrand text-xs font-black uppercase tracking-[0.5em] mb-12"
-            >
-              // EDUCATION
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div
-                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
-              >
-                <h4 class="text-xl font-black uppercase">
-                  Software Engineering
-                </h4>
-                <p
-                  class="text-[10px] font-bold uppercase opacity-70 tracking-widest mt-1"
-                >
-                  Aptech Defence | Hyderabad, Pakistan
-                </p>
-              </div>
-              <div
-                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
-              >
-                <h4 class="text-xl font-black uppercase">
-                  Undergraduate Program
-                </h4>
-                <p
-                  class="text-[10px] font-bold uppercase opacity-70 tracking-widest mt-1"
-                >
-                  HITMS | Hyderabad, Pakistan
-                </p>
-              </div>
-              <div
-                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
-              >
-                <h4 class="text-xl font-black uppercase">Diploma</h4>
-                <p
-                  class="text-[10px] font-bold uppercase opacity-70 tracking-widest mt-1"
-                >
-                  Gexton Education | Hyderabad, Pakistan
-                </p>
-              </div>
-              <div
-                class="edu-card p-8 border-l-8 border-purplebrand bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-all hover:scale-105"
-              >
-                <h4 class="text-xl font-black uppercase">Matriculation</h4>
-                <p
-                  class="text-[10px] font-bold uppercase opacity-70 tracking-widest mt-1"
-                >
-                  Ghulam Hussain Hidayatullah High School
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-block">
+                    <span class="footer-label">CONTACT</span>
+                    <a href="tel:03253019374" class="footer-line">0325-3019374</a>
+                    <a href="tel:03399000731" class="footer-line">0339-9000731</a>
+                    <a href="mailto:shaikhhaneen18@gmail.com" class="footer-line">shaikhhaneen18@gmail.com</a>
+                </div>
 
-      <section
-        class="py-24 border-t border-black dark:border-white scroll-reveal"
-      >
-        <h2
-          class="text-purplebrand text-xs font-black uppercase tracking-[0.5em] mb-16"
-        >
-          // SKILLS_RATING
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            class="p-8 border-2 border-black dark:border-white hover:border-purplebrand transition-colors"
-          >
-            <h4
-              class="text-[10px] font-bold uppercase mb-6 text-purplebrand tracking-widest"
-            >
-              Engineering
-            </h4>
-            <div
-              class="flex justify-between py-3 border-b border-black/10 dark:border-white/10 font-black text-xs"
-            >
-              <span>HTML/CSS/JS</span><span>★★★★★</span>
-            </div>
-            <div class="flex justify-between py-3 font-black text-xs">
-              <span>SQL SERVER</span><span>★★★★★</span>
-            </div>
-          </div>
-          <div
-            class="p-8 border-2 border-black dark:border-white hover:border-purplebrand transition-colors"
-          >
-            <h4
-              class="text-[10px] font-bold uppercase mb-6 text-purplebrand tracking-widest"
-            >
-              Creative
-            </h4>
-            <div
-              class="flex justify-between py-3 border-b border-black/10 dark:border-white/10 font-black text-xs"
-            >
-              <span>ILLUSTRATOR</span><span>★★★★★</span>
-            </div>
-            <div class="flex justify-between py-3 font-black text-xs">
-              <span>PHOTOSHOP</span><span>★★★★☆</span>
-            </div>
-          </div>
-          <div
-            class="p-8 border-2 border-black dark:border-white flex items-center italic text-xs opacity-60"
-          >
-            "Strategic thinker and tech enthusiast. Gaming and sports develop my
-            quick reflexes."
-          </div>
-        </div>
-      </section>
+                <div class="footer-block">
+                    <span class="footer-label">LOCATION</span>
+                    <span class="footer-line">Hyderabad, Sindh</span>
+                    <span class="footer-line">Pakistan</span>
+                </div>
 
-      <section
-        id="projects"
-        class="py-24 border-t border-black dark:border-white scroll-reveal"
-      >
-        <h2
-          class="text-purplebrand text-xs font-black uppercase tracking-[0.5em] mb-16"
-        >
-          // LIVE_WORKS
-        </h2>
-        <div
-          class="grid md:grid-cols-3 gap-0 border-2 border-black dark:border-white overflow-hidden"
-        >
-          <a
-            href="https://ahmedhaneen071.github.io/LA-imperial-Responsive_web_template/"
-            target="_blank"
-            class="p-16 border-b md:border-b-0 md:border-r border-black dark:border-white hover:bg-purplebrand hover:text-white transition-all text-center group"
-          >
-            <h4
-              class="text-2xl font-black uppercase group-hover:scale-110 transition-transform"
-            >
-              La Imperial
-            </h4>
-            <p class="text-[10px] font-bold uppercase tracking-widest mt-2">
-              Luxury Template
-            </p>
-          </a>
-          <a
-            href="https://ahmedhaneen071.github.io/Ethereal-World-Beautiful-HTML5-Template-Design/"
-            target="_blank"
-            class="p-16 border-b md:border-b-0 md:border-r border-black dark:border-white hover:bg-purplebrand hover:text-white transition-all text-center group"
-          >
-            <h4
-              class="text-2xl font-black uppercase group-hover:scale-110 transition-transform"
-            >
-              Ethereal
-            </h4>
-            <p class="text-[10px] font-bold uppercase tracking-widest mt-2">
-              Creative Agency
-            </p>
-          </a>
-          <a
-            href="https://ahmedhaneen071.github.io/Introspect-Simple-Beautiful-Web-Template/"
-            target="_blank"
-            class="p-16 hover:bg-purplebrand hover:text-white transition-all text-center group"
-          >
-            <h4
-              class="text-2xl font-black uppercase group-hover:scale-110 transition-transform"
-            >
-              Introspect
-            </h4>
-            <p class="text-[10px] font-bold uppercase tracking-widest mt-2">
-              Minimalist Web
-            </p>
-          </a>
-        </div>
-      </section>
+                <div class="footer-block">
+                    <span class="footer-label">SOCIALS</span>
+                    <a href="https://www.facebook.com/ahmd.hnyn.slman" target="_blank" rel="noopener" class="footer-line">Facebook <i>↗</i></a>
+                    <a href="https://www.instagram.com/mayhoon_haneen/" target="_blank" rel="noopener" class="footer-line">Instagram <i>↗</i></a>
+                    <a href="https://github.com/ahmedhaneen071" target="_blank" rel="noopener" class="footer-line">Github <i>↗</i></a>
+                </div>
 
-      <section
-        id="contact"
-        class="py-32 border-t border-black dark:border-white text-center scroll-reveal"
-      >
-        <h2
-          class="text-5xl md:text-8xl font-black mb-16 uppercase tracking-tighter leading-none"
-        >
-          Let's create something
-          <span class="text-purplebrand italic">great</span>.
-        </h2>
-        <div class="flex flex-col md:flex-row justify-center gap-6">
-          <a href="mailto:shaikhhaneen18@gmail.com" class="satner-btn"
-            >Email Me</a
-          >
-          <a
-            href="https://wa.me/923253019374"
-            target="_blank"
-            class="satner-btn-outline"
-            >WhatsApp</a
-          >
-        </div>
-      </section>
-    </main>
-
-    <footer
-      class="py-20 border-t border-black dark:border-white bg-white dark:bg-black scroll-reveal"
-    >
-      <div class="max-w-7xl mx-auto px-6">
-        <div
-          class="flex flex-col md:flex-row justify-between items-center gap-10"
-        >
-          <div class="flex flex-col gap-4 text-center md:text-left">
-            <div
-              class="flex items-center gap-3 justify-center md:justify-start"
-            >
-              <i class="fas fa-phone text-purplebrand"></i>
-              <span class="text-[11px] font-black tracking-widest"
-                >0325-3019374 / 0339-9000731</span
-              >
+                <div class="footer-block footer-block-logo">
+                    <img src="Logo-01.svg" alt="Ahmed Haneen Logo" />
+                    <span class="footer-status"><i></i>AVAILABLE FOR WORK</span>
+                </div>
             </div>
-            <div
-              class="flex items-center gap-3 justify-center md:justify-start"
-            >
-              <i class="fas fa-location-dot text-purplebrand"></i>
-              <span class="text-[11px] font-black tracking-widest uppercase"
-                >Hyderabad, Sindh</span
-              >
+            <div class="footer-bottom">
+                <p>Designed &amp; Engineered by Ahmed Haneen © 2026</p>
+                <a href="#about" class="back-top">BACK TO TOP ↑</a>
             </div>
-          </div>
-          <div class="flex gap-10">
-            <a
-              href="https://www.facebook.com/ahmd.hnyn.slman"
-              target="_blank"
-              class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-purplebrand"
-              >Facebook</a
-            >
-            <a
-              href="https://www.instagram.com/mayhoon_haneen/"
-              target="_blank"
-              class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-purplebrand"
-              >Instagram</a
-            >
-            <a
-              href="https://github.com/ahmedhaneen071"
-              target="_blank"
-              class="text-[10px] font-black uppercase tracking-[0.4em] hover:text-purplebrand"
-              >Github</a
-            >
-          </div>
-        </div>
-        <p
-          class="mt-20 text-center text-[9px] font-bold uppercase tracking-[0.6em] opacity-30"
-        >
-          Designed & Engineered by Ahmed Haneen © 2026
-        </p>
-      </div>
-    </footer>
+        </footer>
 
-    <script src="script.js"></script>
-  </body>
+        <script src="script.js"></script>
+    </body>
 </html>
