@@ -19,6 +19,128 @@
         if (pre) pre.classList.add('done');
     }
 
+    /* ================= GITHUB WORKS ================= */
+    (function loadGithubWorks() {
+        const list = document.getElementById('github-works');
+        if (!list) return;
+
+        const fallback = [
+            {
+                name: 'LA Imperial',
+                url: 'https://github.com/ahmedhaneen071/LA-imperial-Responsive_web_template',
+                desc: 'Modern, clean one-page responsive template for digital agencies.',
+                lang: 'CSS',
+                stars: 0,
+            },
+            {
+                name: 'Ethereal World',
+                url: 'https://github.com/ahmedhaneen071/Ethereal-World-Beautiful-HTML5-Template-Design',
+                desc: 'Elegant, immersive HTML5 template for premium web experiences.',
+                lang: 'CSS',
+                stars: 0,
+            },
+            {
+                name: 'Introspect',
+                url: 'https://github.com/ahmedhaneen071/Introspect-Simple-Beautiful-Web-Template',
+                desc: 'Minimal, responsive landing page template for portfolios and startups.',
+                lang: 'HTML',
+                stars: 0,
+            },
+        ];
+
+        async function fetchRepos() {
+            try {
+                const res = await fetch(
+                    'https://api.github.com/users/ahmedhaneen071/repos?per_page=100&sort=pushed'
+                );
+                if (!res.ok) return null;
+                const data = await res.json();
+                return Array.isArray(data) && data.length ? data : null;
+            } catch (err) {
+                return null;
+            }
+        }
+
+        function render(repos) {
+            list.textContent = '';
+            repos.forEach((repo, i) => {
+                const name = (repo.name || '').split('/').pop() || 'Repository';
+                const title = name.replace(/[-_]+/g, ' ').toUpperCase();
+                const raw = (repo.desc || repo.description || '').trim();
+                const desc = raw.length > 130 ? raw.slice(0, 127).trim() + '\u2026' : raw;
+
+                const card = document.createElement('a');
+                card.className = 'work-card';
+                card.href = repo.url || repo.html_url || 'https://github.com/ahmedhaneen071';
+                card.target = '_blank';
+                card.rel = 'noopener';
+                card.setAttribute('data-cursor', 'OPEN \u2197');
+
+                const num = document.createElement('span');
+                num.className = 'work-number';
+                num.textContent = 'W/' + String(i + 1).padStart(2, '0');
+
+                const main = document.createElement('div');
+                main.className = 'work-main';
+
+                const head = document.createElement('h3');
+                head.className = 'work-title';
+                head.textContent = title;
+
+                const p = document.createElement('p');
+                p.className = 'work-desc';
+                p.textContent = desc || 'Public repository';
+
+                const meta = document.createElement('div');
+                meta.className = 'work-meta';
+                if (repo.lang) {
+                    const l = document.createElement('span');
+                    l.className = 'work-lang';
+                    l.textContent = repo.lang;
+                    meta.appendChild(l);
+                }
+                if (repo.stars > 0) {
+                    const s = document.createElement('span');
+                    s.className = 'work-stars';
+                    s.textContent = '\u2605 ' + repo.stars;
+                    meta.appendChild(s);
+                }
+
+                main.appendChild(head);
+                main.appendChild(p);
+                if (meta.children.length) main.appendChild(meta);
+
+                const foot = document.createElement('div');
+                foot.className = 'work-foot';
+                const arrow = document.createElement('span');
+                arrow.className = 'work-arrow';
+                arrow.textContent = '\u2197';
+                foot.appendChild(arrow);
+
+                card.appendChild(num);
+                card.appendChild(main);
+                card.appendChild(foot);
+                list.appendChild(card);
+            });
+
+            requestAnimationFrame(() => {
+                if (!reduceMotion && typeof gsap !== 'undefined') {
+                    gsap.from(list.children, {
+                        opacity: 0,
+                        y: 26,
+                        duration: 0.55,
+                        ease: 'power3.out',
+                        stagger: 0.05,
+                        scrollTrigger: { trigger: list, start: 'top 85%' },
+                    });
+                    ScrollTrigger.refresh();
+                }
+            });
+        }
+
+        fetchRepos().then((repos) => render(repos || fallback));
+    })();
+
     /* ================= SCROLL LOCK ================= */
     function lockScroll(on) {
         document.body.style.overflow = on ? 'hidden' : '';

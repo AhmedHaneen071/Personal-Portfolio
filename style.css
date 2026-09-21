@@ -1093,6 +1093,79 @@ footer {
   color: var(--accent);
 }
 
+.work-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.work-main .work-title {
+  font-size: clamp(26px, 4vw, 44px);
+}
+.work-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  max-width: 720px;
+}
+.work-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.work-lang::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 8px;
+}
+.work-stars {
+  color: var(--text-dim);
+}
+
+/* ---------- Interests ---------- */
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.interest-chip {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 18px 32px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease),
+    box-shadow var(--speed) var(--ease);
+}
+.interest-chip::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  margin-right: 12px;
+}
+.interest-chip:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-card);
+}
+
 /* ---------- Contact ---------- */
 .contact-section {
   text-align: center;
@@ -1299,7 +1372,7 @@ footer {
   }
   .work-foot {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     border-top: 1px solid var(--line);
     padding-top: 16px;
