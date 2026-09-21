@@ -67,7 +67,7 @@
                 const name = (repo.name || '').split('/').pop() || 'Repository';
                 const title = name.replace(/[-_]+/g, ' ').toUpperCase();
                 const raw = (repo.desc || repo.description || '').trim();
-                const desc = raw.length > 130 ? raw.slice(0, 127).trim() + '\u2026' : raw;
+                const desc = raw.length > 100 ? raw.slice(0, 97).trim() + '\u2026' : raw;
 
                 const card = document.createElement('a');
                 card.className = 'work-card';

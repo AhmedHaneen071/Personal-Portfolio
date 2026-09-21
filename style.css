@@ -79,7 +79,13 @@ button {
 
 html,
 body {
+  overflow-x: clip;
   overscroll-behavior-y: none;
+}
+
+.work-title,
+.work-desc {
+  overflow-wrap: break-word;
 }
 
 a {
@@ -1453,27 +1459,63 @@ footer {
     grid-column: auto;
   }
   .edu-card {
-    padding: 22px 18px;
+    padding: 20px 16px;
+    gap: 8px;
+  }
+  .edu-degree {
+    font-size: 12px;
+  }
+  .skill-panel {
+    padding: 24px 18px;
+  }
+  .skill-row {
+    padding: 12px 0;
   }
   .interest-chip {
-    padding: 16px 24px;
-    font-size: 12px;
+    padding: 14px 20px;
+    font-size: 11px;
+  }
+  .works-list {
+    gap: 12px;
   }
   .work-card {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
     align-items: start;
+    padding: 18px 16px;
+  }
+  .work-main {
+    gap: 8px;
   }
   .work-main .work-title {
-    font-size: clamp(24px, 8.5vw, 34px);
+    font-size: clamp(18px, 5.5vw, 26px);
+    letter-spacing: -0.01em;
+  }
+  .work-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .work-meta {
+    font-size: 10px;
+    gap: 12px;
+  }
+  .work-number {
+    font-size: 10px;
+  }
+  .work-arrow {
+    font-size: 18px;
   }
   .work-foot {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     border-top: 1px solid var(--line);
-    padding-top: 16px;
-    margin-top: 6px;
+    padding-top: 12px;
+    margin-top: 2px;
   }
   .contact-kicker {
     letter-spacing: 0.3em;
