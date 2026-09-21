@@ -17,18 +17,13 @@
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     </head>
     <body>
-        <!-- Noise overlay -->
-        <div class="noise" aria-hidden="true"></div>
-
         <!-- Scroll progress -->
         <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
         <!-- Preloader -->
         <div class="preloader" id="preloader" aria-hidden="true">
             <div class="preloader-inner">
-                <div class="preloader-logo">
-                    <img src="Logo-01.svg" alt="" />
-                </div>
+                <img src="Logo-01.svg" alt="" class="preloader-logo" />
                 <span class="preloader-name">AHMED HANEEN</span>
                 <div class="preloader-bar"><span id="preloader-fill"></span></div>
                 <div class="preloader-count" id="preloader-count">000</div>
@@ -41,14 +36,12 @@
 
         <!-- Header -->
         <header class="site-header" id="site-header">
-            <div class="header-inner">
-                <a href="#about" class="header-logo" data-magnetic>
+            <div class="container header-inner">
+                <a href="#about" class="header-logo">
                     <img src="Logo-01.svg" alt="Ahmed Haneen Logo" class="header-logo-img" />
                     <span class="header-logo-text">
                         <span class="header-logo-name">AHMED HANEEN</span>
-                        <span class="header-logo-status">
-                            <i></i>System Online
-                        </span>
+                        <span class="header-logo-status"><i></i>System Online</span>
                     </span>
                 </a>
 
@@ -73,7 +66,7 @@
 
         <!-- Mobile menu -->
         <div class="mobile-menu" id="mobile-menu">
-            <button id="menu-close" class="menu-close icon-btn" type="button" aria-label="Close menu">
+            <button id="menu-close" class="menu-close" type="button" aria-label="Close menu">
                 <span></span>
             </button>
             <nav class="mobile-menu-links" aria-label="Mobile">
@@ -88,328 +81,374 @@
             </div>
         </div>
 
-        <main id="main">
+        <main>
             <!-- ==================== HERO ==================== -->
-            <section id="about" class="hero section">
-                <div class="hero-float hero-float-a" aria-hidden="true">GRAPHIC<span>DESIGN</span></div>
-                <div class="hero-float hero-float-b" aria-hidden="true">SOFTWARE<span>ENGINEERING</span></div>
-                <div class="hero-float hero-float-c" aria-hidden="true">3+ YRS<span>EXPERIENCE</span></div>
-                <div class="hero-float hero-float-d" aria-hidden="true">UI / UX<span>FOCUS</span></div>
-
-                <div class="hero-container">
-                    <p class="hero-kicker" data-reveal="fade-down">
-                        <span class="pulse-dot"></span> PORTFOLIO — 2026 / GRAPHIC DESIGNER &amp; DEVELOPER
+            <section id="about" class="hero">
+                <div class="container hero-inner">
+                    <p class="hero-kicker" data-reveal="down">
+                        <span class="pulse-dot"></span>
+                        Portfolio — 2026 / Graphic Designer &amp; Developer
                     </p>
 
                     <h1 class="hero-title" aria-label="Ahmed Haneen">
-                        <span class="hero-line"><span class="hero-char-wrap">A</span><span class="hero-char-wrap">H</span><span class="hero-char-wrap">M</span><span class="hero-char-wrap">E</span><span class="hero-char-wrap">D</span></span>
+                        <span class="hero-line"
+                            ><span class="hc">A</span><span class="hc">H</span><span class="hc">M</span
+                            ><span class="hc">E</span><span class="hc">D</span></span
+                        >
                         <span class="hero-line hero-line-accent">
-                            <span class="hero-char-wrap">H</span><span class="hero-char-wrap">A</span><span class="hero-char-wrap">N</span><span class="hero-char-wrap">E</span><span class="hero-char-wrap">E</span><span class="hero-char-wrap">N</span><span class="hero-cursor">_</span>
+                            <span class="hc">H</span><span class="hc">A</span><span class="hc">N</span
+                            ><span class="hc">E</span><span class="hc">E</span><span class="hc">N</span
+                            ><span class="hero-cursor">_</span>
                         </span>
                     </h1>
 
-                    <div class="hero-row">
-                        <div class="hero-text" data-reveal="fade-up">
-                            <p>
-                                Creative and logic-driven professional with over 3 years of experience
-                                in <strong>Graphic Design</strong> and an evolving expertise in
-                                <strong>Software Engineering</strong>. Currently at
-                                <strong>SMS Industries</strong>.
-                            </p>
-                            <div class="hero-cta">
-                                <a href="#contact" class="btn btn-primary magnetic" data-cursor="GO" data-magnetic>
-                                    <span>Start Project</span>
-                                </a>
-                                <a href="Ahmed-Haneen-CV.pdf" target="_blank" class="btn btn-outline" data-cursor="CV" data-magnetic>
-                                    <span>Download CV</span>
-                                </a>
-                            </div>
-                        </div>
+                    <p class="hero-text" data-reveal="up">
+                        Creative and logic-driven professional with over 3 years of experience in
+                        <strong>Graphic Design</strong> and an evolving expertise in
+                        <strong>Software Engineering</strong>. Currently at
+                        <strong>SMS Industries</strong>.
+                    </p>
 
-                        <ul class="hero-stats" data-reveal="fade-up">
-                            <li><span class="stat-num" data-count="3">0</span><span class="stat-label">Years<br />Experience</span></li>
-                            <li><span class="stat-num" data-count="5">0</span><span class="stat-label">Skills<br />Mastered</span></li>
-                            <li><span class="stat-num" data-count="3">0</span><span class="stat-label">Live<br />Projects</span></li>
-                        </ul>
+                    <ul class="hero-tags" data-reveal="up">
+                        <li>Graphic Design</li>
+                        <li>Branding</li>
+                        <li>Software Engineering</li>
+                        <li>UI / UX</li>
+                    </ul>
+
+                    <div class="hero-cta" data-reveal="up">
+                        <a href="#contact" class="btn btn-primary" data-cursor="GO">
+                            <span>Start Project</span><em>→</em>
+                        </a>
+                        <a href="Ahmed-Haneen-CV.pdf" target="_blank" class="btn btn-outline" data-cursor="CV">
+                            <span>Download CV</span><em>↓</em>
+                        </a>
                     </div>
-                </div>
 
-                <a href="#experience" class="scroll-cue" data-reveal="fade-up" aria-label="Scroll to experience">
-                    <span>SCROLL</span>
-                    <span class="scroll-cue-line"></span>
-                </a>
+                    <ul class="hero-stats" data-stats>
+                        <li>
+                            <span class="stat-num" data-count="3">0</span>
+                            <span class="stat-label">Years<br />Experience</span>
+                        </li>
+                        <li>
+                            <span class="stat-num" data-count="5">0</span>
+                            <span class="stat-label">Core<br />Skills</span>
+                        </li>
+                        <li>
+                            <span class="stat-num" data-count="3">0</span>
+                            <span class="stat-label">Live<br />Projects</span>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
             <!-- ==================== MARQUEE ==================== -->
             <div class="marquee" aria-hidden="true">
                 <div class="marquee-track">
-                    <span>GRAPHIC DESIGN</span><i>◆</i>
-                    <span>BRANDING</span><i>◆</i>
-                    <span>SOFTWARE ENGINEERING</span><i>◆</i>
-                    <span>INDUSTRIAL MARKETING</span><i>◆</i>
-                    <span>UI / UX</span><i>◆</i>
-                    <span>ILLUSTRATION</span><i>◆</i>
-                    <span>CREATIVE THINKING</span><i>◆</i>
-                    <span>GRAPHIC DESIGN</span><i>◆</i>
-                    <span>BRANDING</span><i>◆</i>
-                    <span>SOFTWARE ENGINEERING</span><i>◆</i>
-                    <span>INDUSTRIAL MARKETING</span><i>◆</i>
-                    <span>UI / UX</span><i>◆</i>
-                    <span>ILLUSTRATION</span><i>◆</i>
-                    <span>CREATIVE THINKING</span><i>◆</i>
+                    <span>GRAPHIC DESIGN</span><i>◆</i><span>BRANDING</span><i>◆</i
+                    ><span>SOFTWARE ENGINEERING</span><i>◆</i><span>INDUSTRIAL MARKETING</span><i>◆</i
+                    ><span>UI / UX</span><i>◆</i><span>ILLUSTRATION</span><i>◆</i
+                    ><span>CREATIVE THINKING</span><i>◆</i><span>GRAPHIC DESIGN</span><i>◆</i
+                    ><span>BRANDING</span><i>◆</i><span>SOFTWARE ENGINEERING</span><i>◆</i
+                    ><span>INDUSTRIAL MARKETING</span><i>◆</i><span>UI / UX</span><i>◆</i
+                    ><span>ILLUSTRATION</span><i>◆</i><span>CREATIVE THINKING</span><i>◆</i>
                 </div>
             </div>
 
             <!-- ==================== EXPERIENCE ==================== -->
-            <section id="experience" class="section section-tall">
-                <div class="section-head" data-reveal="fade-up">
-                    <span class="section-index">[01]</span>
-                    <h2 class="section-title" data-split>Experience</h2>
-                    <p class="section-sub">Two roles. One rising trajectory.</p>
-                </div>
+            <section id="experience" class="section">
+                <div class="container">
+                    <div class="section-head" data-reveal="up">
+                        <span class="section-index">01</span>
+                        <div class="section-head-main">
+                            <h2 class="section-title" data-split>Experience</h2>
+                            <p class="section-sub">Two roles. One rising trajectory.</p>
+                        </div>
+                    </div>
 
-                <div class="timeline">
-                    <article class="xp-card" data-reveal="fade-left">
-                        <div class="xp-meta">
-                            <span class="xp-num">01</span>
-                            <span class="xp-date">2024 — PRESENT</span>
-                        </div>
-                        <div class="xp-body">
-                            <h3>Graphic Designer</h3>
-                            <h4>SMS Industries, Hyderabad</h4>
-                            <ul>
-                                <li>Specializing in industrial marketing and design.</li>
-                                <li>Increased brand visibility by 30% over 6 months.</li>
-                                <li>Developing comprehensive brand identities.</li>
-                            </ul>
-                            <div class="xp-tags">
-                                <span>Branding</span><span>Industrial</span><span>Marketing</span>
+                    <div class="timeline">
+                        <article class="xp-card" data-reveal="left">
+                            <div class="xp-meta">
+                                <span class="xp-num">01</span>
+                                <span class="xp-date">2024 — Present</span>
                             </div>
-                        </div>
-                    </article>
+                            <div class="xp-body">
+                                <h3>Graphic Designer</h3>
+                                <h4>SMS Industries, Hyderabad</h4>
+                                <ul>
+                                    <li>Specializing in industrial marketing and design.</li>
+                                    <li>Increased brand visibility by 30% over 6 months.</li>
+                                    <li>Developing comprehensive brand identities.</li>
+                                </ul>
+                                <div class="xp-tags">
+                                    <span>Branding</span><span>Industrial</span><span>Marketing</span>
+                                </div>
+                            </div>
+                        </article>
 
-                    <article class="xp-card" data-reveal="fade-right">
-                        <div class="xp-meta">
-                            <span class="xp-num">02</span>
-                            <span class="xp-date">2019 — 2020</span>
-                        </div>
-                        <div class="xp-body">
-                            <h3>Junior Designer</h3>
-                            <h4>TryFry, Hyderabad</h4>
-                            <p class="xp-text">
-                                Focused on digital and printed media within a creative agency environment.
-                            </p>
-                            <div class="xp-tags">
-                                <span>Digital</span><span>Print</span><span>Agency</span>
+                        <article class="xp-card" data-reveal="right">
+                            <div class="xp-meta">
+                                <span class="xp-num">02</span>
+                                <span class="xp-date">2019 — 2020</span>
                             </div>
-                        </div>
-                    </article>
+                            <div class="xp-body">
+                                <h3>Junior Designer</h3>
+                                <h4>TryFry, Hyderabad</h4>
+                                <p class="xp-text">
+                                    Focused on digital and printed media within a creative agency
+                                    environment.
+                                </p>
+                                <div class="xp-tags">
+                                    <span>Digital</span><span>Print</span><span>Agency</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </section>
 
             <!-- ==================== EDUCATION ==================== -->
-            <section class="section">
-                <div class="section-head" data-reveal="fade-up">
-                    <span class="section-index">[02]</span>
-                    <h2 class="section-title" data-split>Education</h2>
-                    <p class="section-sub">The foundation behind the craft.</p>
-                </div>
+            <section class="section section-alt">
+                <div class="container">
+                    <div class="section-head" data-reveal="up">
+                        <span class="section-index">02</span>
+                        <div class="section-head-main">
+                            <h2 class="section-title" data-split>Education</h2>
+                            <p class="section-sub">The foundation behind the craft.</p>
+                        </div>
+                    </div>
 
-                <div class="edu-grid">
-                    <div class="edu-card" data-reveal="zoom">
-                        <span class="edu-degree">B1</span>
-                        <h3>Software Engineering</h3>
-                        <p>Aptech Defence<br />Hyderabad, Pakistan</p>
-                    </div>
-                    <div class="edu-card" data-reveal="zoom">
-                        <span class="edu-degree">B2</span>
-                        <h3>Undergraduate Program</h3>
-                        <p>HITMS<br />Hyderabad, Pakistan</p>
-                    </div>
-                    <div class="edu-card" data-reveal="zoom">
-                        <span class="edu-degree">B3</span>
-                        <h3>Diploma</h3>
-                        <p>Gexton Education<br />Hyderabad, Pakistan</p>
-                    </div>
-                    <div class="edu-card" data-reveal="zoom">
-                        <span class="edu-degree">B4</span>
-                        <h3>Matriculation</h3>
-                        <p>Ghulam Hussain Hidayatullah<br />High School</p>
+                    <div class="edu-grid" data-stagger>
+                        <div class="edu-card">
+                            <span class="edu-degree">B1</span>
+                            <h3>Software Engineering</h3>
+                            <p>Aptech Defence<br />Hyderabad, Pakistan</p>
+                        </div>
+                        <div class="edu-card">
+                            <span class="edu-degree">B2</span>
+                            <h3>Undergraduate Program</h3>
+                            <p>HITMS<br />Hyderabad, Pakistan</p>
+                        </div>
+                        <div class="edu-card">
+                            <span class="edu-degree">B3</span>
+                            <h3>Diploma</h3>
+                            <p>Gexton Education<br />Hyderabad, Pakistan</p>
+                        </div>
+                        <div class="edu-card">
+                            <span class="edu-degree">B4</span>
+                            <h3>Matriculation</h3>
+                            <p>Ghulam Hussain Hidayatullah<br />High School</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- ==================== SKILLS ==================== -->
-            <section class="section skills-section">
-                <div class="section-head" data-reveal="fade-up">
-                    <span class="section-index">[03]</span>
-                    <h2 class="section-title" data-split>Skills Rating</h2>
-                    <p class="section-sub">Measured and battle-tested.</p>
-                </div>
-
-                <div class="skills-grid">
-                    <div class="skill-panel" data-reveal="fade-up">
-                        <span class="skill-cat">ENGINEERING</span>
-                        <div class="skill-row" data-bar="95">
-                            <div class="skill-row-head">
-                                <span>HTML / CSS / JS</span>
-                                <span class="skill-stars">★★★★★</span>
-                            </div>
-                            <div class="skill-bar"><span></span></div>
-                        </div>
-                        <div class="skill-row" data-bar="92">
-                            <div class="skill-row-head">
-                                <span>SQL SERVER</span>
-                                <span class="skill-stars">★★★★★</span>
-                            </div>
-                            <div class="skill-bar"><span></span></div>
+            <section class="section">
+                <div class="container">
+                    <div class="section-head" data-reveal="up">
+                        <span class="section-index">03</span>
+                        <div class="section-head-main">
+                            <h2 class="section-title" data-split>Skills Rating</h2>
+                            <p class="section-sub">Measured and battle-tested.</p>
                         </div>
                     </div>
 
-                    <div class="skill-panel" data-reveal="fade-up">
-                        <span class="skill-cat">CREATIVE</span>
-                        <div class="skill-row" data-bar="96">
-                            <div class="skill-row-head">
-                                <span>ILLUSTRATOR</span>
-                                <span class="skill-stars">★★★★★</span>
+                    <div class="skills-grid" data-stagger>
+                        <div class="skill-panel">
+                            <span class="skill-cat">Engineering</span>
+                            <div class="skill-row" data-bar="95">
+                                <div class="skill-row-head">
+                                    <span>HTML / CSS / JS</span>
+                                    <span class="skill-pct">95%</span>
+                                </div>
+                                <div class="skill-bar"><span></span></div>
                             </div>
-                            <div class="skill-bar"><span></span></div>
-                        </div>
-                        <div class="skill-row" data-bar="84">
-                            <div class="skill-row-head">
-                                <span>PHOTOSHOP</span>
-                                <span class="skill-stars">★★★★☆</span>
+                            <div class="skill-row" data-bar="92">
+                                <div class="skill-row-head">
+                                    <span>SQL Server</span>
+                                    <span class="skill-pct">92%</span>
+                                </div>
+                                <div class="skill-bar"><span></span></div>
                             </div>
-                            <div class="skill-bar"><span></span></div>
                         </div>
-                    </div>
 
-                    <figure class="skill-quote" data-reveal="zoom">
-                        <span class="skill-quote-mark">"</span>
-                        <blockquote>
-                            Strategic thinker and tech enthusiast. Gaming and sports develop my quick
-                            reflexes.
-                        </blockquote>
-                        <figcaption>— AHMED HANEEN</figcaption>
-                    </figure>
+                        <div class="skill-panel">
+                            <span class="skill-cat">Creative</span>
+                            <div class="skill-row" data-bar="96">
+                                <div class="skill-row-head">
+                                    <span>Illustrator</span>
+                                    <span class="skill-pct">96%</span>
+                                </div>
+                                <div class="skill-bar"><span></span></div>
+                            </div>
+                            <div class="skill-row" data-bar="84">
+                                <div class="skill-row-head">
+                                    <span>Photoshop</span>
+                                    <span class="skill-pct">84%</span>
+                                </div>
+                                <div class="skill-bar"><span></span></div>
+                            </div>
+                        </div>
+
+                        <figure class="skill-quote">
+                            <span class="skill-quote-mark">"</span>
+                            <blockquote>
+                                Strategic thinker and tech enthusiast. Gaming and sports develop my
+                                quick reflexes.
+                            </blockquote>
+                            <figcaption>— Ahmed Haneen</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </section>
 
             <!-- ==================== PROJECTS ==================== -->
-            <section id="projects" class="section works-section">
-                <div class="section-head" data-reveal="fade-up">
-                    <span class="section-index">[04]</span>
-                    <h2 class="section-title" data-split>Live Works</h2>
-                    <p class="section-sub">Production templates, pressed live.</p>
-                </div>
-
-                <div class="works-list">
-                    <a
-                        class="work-card"
-                        href="https://ahmedhaneen071.github.io/LA-imperial-Responsive_web_template/"
-                        target="_blank"
-                        rel="noopener"
-                        data-reveal="fade-up"
-                        data-cursor="OPEN ↗"
-                    >
-                        <span class="work-number">W/01</span>
-                        <h3 class="work-title">La <em>Imperial</em></h3>
-                        <div class="work-foot">
-                            <span>Luxury Template</span>
-                            <span class="work-arrow">↗</span>
+            <section id="projects" class="section section-alt">
+                <div class="container">
+                    <div class="section-head" data-reveal="up">
+                        <span class="section-index">04</span>
+                        <div class="section-head-main">
+                            <h2 class="section-title" data-split>Live Works</h2>
+                            <p class="section-sub">Production templates, pressed live.</p>
                         </div>
-                        <div class="work-image" style="background-image: url('Logo-01.svg')"></div>
-                    </a>
+                    </div>
 
-                    <a
-                        class="work-card"
-                        href="https://ahmedhaneen071.github.io/Ethereal-World-Beautiful-HTML5-Template-Design/"
-                        target="_blank"
-                        rel="noopener"
-                        data-reveal="fade-up"
-                        data-cursor="OPEN ↗"
-                    >
-                        <span class="work-number">W/02</span>
-                        <h3 class="work-title">Ethe<em>real</em></h3>
-                        <div class="work-foot">
-                            <span>Creative Agency</span>
-                            <span class="work-arrow">↗</span>
-                        </div>
-                        <div class="work-image" style="background-image: url('Logo-01.svg')"></div>
-                    </a>
+                    <div class="works-list" data-stagger>
+                        <a
+                            class="work-card"
+                            href="https://ahmedhaneen071.github.io/LA-imperial-Responsive_web_template/"
+                            target="_blank"
+                            rel="noopener"
+                            data-cursor="OPEN ↗"
+                        >
+                            <span class="work-number">W/01</span>
+                            <h3 class="work-title">La <em>Imperial</em></h3>
+                            <div class="work-foot">
+                                <span class="work-type">Luxury Template</span>
+                                <span class="work-arrow">↗</span>
+                            </div>
+                        </a>
 
-                    <a
-                        class="work-card"
-                        href="https://ahmedhaneen071.github.io/Introspect-Simple-Beautiful-Web-Template/"
-                        target="_blank"
-                        rel="noopener"
-                        data-reveal="fade-up"
-                        data-cursor="OPEN ↗"
-                    >
-                        <span class="work-number">W/03</span>
-                        <h3 class="work-title">Intro<em>spect</em></h3>
-                        <div class="work-foot">
-                            <span>Minimalist Web</span>
-                            <span class="work-arrow">↗</span>
-                        </div>
-                        <div class="work-image" style="background-image: url('Logo-01.svg')"></div>
-                    </a>
+                        <a
+                            class="work-card"
+                            href="https://ahmedhaneen071.github.io/Ethereal-World-Beautiful-HTML5-Template-Design/"
+                            target="_blank"
+                            rel="noopener"
+                            data-cursor="OPEN ↗"
+                        >
+                            <span class="work-number">W/02</span>
+                            <h3 class="work-title">Ethe<em>real</em></h3>
+                            <div class="work-foot">
+                                <span class="work-type">Creative Agency</span>
+                                <span class="work-arrow">↗</span>
+                            </div>
+                        </a>
+
+                        <a
+                            class="work-card"
+                            href="https://ahmedhaneen071.github.io/Introspect-Simple-Beautiful-Web-Template/"
+                            target="_blank"
+                            rel="noopener"
+                            data-cursor="OPEN ↗"
+                        >
+                            <span class="work-number">W/03</span>
+                            <h3 class="work-title">Intro<em>spect</em></h3>
+                            <div class="work-foot">
+                                <span class="work-type">Minimalist Web</span>
+                                <span class="work-arrow">↗</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </section>
 
             <!-- ==================== CONTACT ==================== -->
             <section id="contact" class="section contact-section">
-                <p class="contact-kicker" data-reveal="fade-up">HAVE A PROJECT IN MIND?</p>
-                <h2 class="contact-title" data-split>
-                    Let's create something
-                    <em>great</em>.
-                </h2>
-                <p class="contact-sub" data-reveal="fade-up">
-                    Open to freelance work, collaborations, and bold ideas. Say hello — I usually
-                    reply within 24 hours.
-                </p>
-                <div class="contact-cta" data-reveal="fade-up">
-                    <a href="mailto:shaikhhaneen18@gmail.com" class="btn btn-primary btn-xl magnetic" data-cursor="✉" data-magnetic>
-                        <span>Email Me</span>
-                    </a>
-                    <a href="https://wa.me/923253019374" target="_blank" rel="noopener" class="btn btn-outline btn-xl magnetic" data-cursor="WA" data-magnetic>
-                        <span>WhatsApp</span>
-                    </a>
+                <div class="container">
+                    <p class="contact-kicker" data-reveal="up">Have a project in mind?</p>
+                    <h2 class="contact-title" data-split>
+                        Let's create something <em>great</em>.
+                    </h2>
+                    <p class="contact-sub" data-reveal="up">
+                        Open to freelance work, collaborations, and bold ideas. I usually reply
+                        within 24 hours.
+                    </p>
+                    <div class="contact-cta" data-reveal="up">
+                        <a
+                            href="mailto:shaikhhaneen18@gmail.com"
+                            class="btn btn-primary btn-xl"
+                            data-cursor="✉"
+                        >
+                            <span>Email Me</span><em>→</em>
+                        </a>
+                        <a
+                            href="https://wa.me/923253019374"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-outline btn-xl"
+                            data-cursor="WA"
+                        >
+                            <span>WhatsApp</span><em>↗</em>
+                        </a>
+                    </div>
                 </div>
             </section>
         </main>
 
         <!-- ==================== FOOTER ==================== -->
         <footer class="site-footer">
-            <div class="footer-grid">
-                <div class="footer-block">
-                    <span class="footer-label">CONTACT</span>
-                    <a href="tel:03253019374" class="footer-line">0325-3019374</a>
-                    <a href="tel:03399000731" class="footer-line">0339-9000731</a>
-                    <a href="mailto:shaikhhaneen18@gmail.com" class="footer-line">shaikhhaneen18@gmail.com</a>
-                </div>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-block">
+                        <span class="footer-label">Contact</span>
+                        <a href="tel:03253019374" class="footer-line">0325-3019374</a>
+                        <a href="tel:03399000731" class="footer-line">0339-9000731</a>
+                        <a href="mailto:shaikhhaneen18@gmail.com" class="footer-line"
+                            >shaikhhaneen18@gmail.com</a
+                        >
+                    </div>
 
-                <div class="footer-block">
-                    <span class="footer-label">LOCATION</span>
-                    <span class="footer-line">Hyderabad, Sindh</span>
-                    <span class="footer-line">Pakistan</span>
-                </div>
+                    <div class="footer-block">
+                        <span class="footer-label">Location</span>
+                        <span class="footer-line">Hyderabad, Sindh</span>
+                        <span class="footer-line">Pakistan</span>
+                    </div>
 
-                <div class="footer-block">
-                    <span class="footer-label">SOCIALS</span>
-                    <a href="https://www.facebook.com/ahmd.hnyn.slman" target="_blank" rel="noopener" class="footer-line">Facebook <i>↗</i></a>
-                    <a href="https://www.instagram.com/mayhoon_haneen/" target="_blank" rel="noopener" class="footer-line">Instagram <i>↗</i></a>
-                    <a href="https://github.com/ahmedhaneen071" target="_blank" rel="noopener" class="footer-line">Github <i>↗</i></a>
-                </div>
+                    <div class="footer-block">
+                        <span class="footer-label">Socials</span>
+                        <a
+                            href="https://www.facebook.com/ahmd.hnyn.slman"
+                            target="_blank"
+                            rel="noopener"
+                            class="footer-line"
+                            >Facebook <i>↗</i></a
+                        >
+                        <a
+                            href="https://www.instagram.com/mayhoon_haneen/"
+                            target="_blank"
+                            rel="noopener"
+                            class="footer-line"
+                            >Instagram <i>↗</i></a
+                        >
+                        <a
+                            href="https://github.com/ahmedhaneen071"
+                            target="_blank"
+                            rel="noopener"
+                            class="footer-line"
+                            >Github <i>↗</i></a
+                        >
+                    </div>
 
-                <div class="footer-block footer-block-logo">
-                    <img src="Logo-01.svg" alt="Ahmed Haneen Logo" />
-                    <span class="footer-status"><i></i>AVAILABLE FOR WORK</span>
+                    <div class="footer-block footer-block-logo">
+                        <img src="Logo-01.svg" alt="Ahmed Haneen Logo" />
+                        <span class="footer-status"><i></i>Available for work</span>
+                    </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Designed &amp; Engineered by Ahmed Haneen © 2026</p>
-                <a href="#about" class="back-top">BACK TO TOP ↑</a>
+                <div class="footer-bottom">
+                    <p>Designed &amp; Engineered by Ahmed Haneen © 2026</p>
+                    <a href="#about" class="back-top">Back to top ↑</a>
+                </div>
             </div>
         </footer>
 
