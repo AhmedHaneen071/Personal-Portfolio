@@ -1497,7 +1497,7 @@ footer {
     flex-direction: row;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 26px;
+    margin-bottom: 40px;
   }
   .section-index {
     display: inline-flex;
@@ -1519,7 +1519,7 @@ footer {
   }
   .section-title {
     font-size: clamp(28px, 9vw, 40px);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
   .section-sub {
     font-size: 13px;
@@ -1673,17 +1673,16 @@ footer {
   .work-main .work-title {
     font-size: 15px;
     letter-spacing: 0;
-    line-height: 1.25;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.3;
+    overflow-wrap: break-word;
   }
   .work-desc {
     font-size: 12px;
-    line-height: 1.4;
-    white-space: nowrap;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
   .work-meta {
     display: none;
