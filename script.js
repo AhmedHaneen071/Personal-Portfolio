@@ -253,11 +253,14 @@
     gsap.utils.toArray('[data-reveal]').forEach((el) => {
         if (el.closest('.hero')) return; // hero animated by the intro
         const dir = (el.dataset.reveal || 'up').split('-');
+        const mobile = window.matchMedia('(max-width: 640px)').matches;
         const from = { opacity: 0 };
-        if (dir.includes('up')) from.y = 34;
+        if (dir.includes('up') || (mobile && (dir.includes('left') || dir.includes('right')))) from.y = 34;
         if (dir.includes('down')) from.y = -34;
-        if (dir.includes('left')) from.x = 44;
-        if (dir.includes('right')) from.x = -44;
+        if (!mobile) {
+            if (dir.includes('left')) from.x = 44;
+            if (dir.includes('right')) from.x = -44;
+        }
 
         gsap.fromTo(
             el,
