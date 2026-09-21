@@ -562,6 +562,18 @@ const CONFIG = {
             },
         });
 
+        const contact = document.getElementById('contact');
+        if (contact) {
+            ScrollTrigger.create({
+                trigger: contact,
+                start: 'top 45%',
+                end: 'bottom 45%',
+                onToggle: (self) => {
+                    if (self.isActive) setLive('08', 'Contact', 'contact');
+                },
+            });
+        }
+
         document.querySelectorAll('main section[id]').forEach((sec) => {
             const idxEl = sec.querySelector('.section-index');
             const nameEl = sec.querySelector('.section-title');
