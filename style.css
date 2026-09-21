@@ -1495,20 +1495,24 @@ footer {
   /* section heads */
   .section-head {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     margin-bottom: 26px;
   }
   .section-index {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 12px;
     font-size: 12px;
     font-weight: 800;
     color: #fff7ed;
     background: var(--primary);
     -webkit-text-stroke: 0;
-    padding: 8px 10px;
     border-radius: 8px;
     flex-shrink: 0;
     line-height: 1;
+    box-sizing: border-box;
   }
   .section-head-main {
     min-width: 0;
@@ -1524,29 +1528,35 @@ footer {
     margin-right: 8px;
   }
 
-  /* experience */
+  /* experience — stacked cards */
   .timeline::before {
-    left: 14px;
-  }
-  .xp-card {
-    grid-template-columns: 28px 1fr;
-    margin-bottom: 24px;
-  }
-  .xp-meta::before {
-    width: 10px;
-    height: 10px;
-  }
-  .xp-num {
     display: none;
   }
-  .xp-date {
-    font-size: 8px;
-    letter-spacing: 0.1em;
+  .xp-card {
+    display: block;
+    margin-bottom: 16px;
+  }
+  .xp-meta {
+    display: none;
   }
   .xp-body {
-    margin-left: 12px;
-    padding: 18px 16px;
+    margin-left: 0;
+    padding: 20px 18px 18px;
     border-radius: 14px;
+  }
+  .xp-body::before {
+    content: attr(data-date);
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    padding: 7px 12px;
+    border-radius: 8px;
+    margin-bottom: 14px;
   }
   .xp-body h3 {
     font-size: 22px;
@@ -1593,6 +1603,7 @@ footer {
 
   /* skills */
   .skills-grid {
+    grid-template-columns: 1fr;
     gap: 12px;
   }
   .skill-panel {
