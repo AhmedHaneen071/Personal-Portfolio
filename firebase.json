@@ -4,7 +4,14 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/*.json",
+      "**/*.md",
+      "**/node_modules/**",
+      ".git/**",
+      ".firebase/**",
+      ".github/**",
+      ".vscode/**",
+      ".opencode/**"
     ]
   }
 }
